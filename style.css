@@ -1,0 +1,75 @@
+* {
+    border: 1px solid blue;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    height: 100vh;
+}
+
+.hp-bar {
+    height: 5vh;
+}
+
+.health-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    font-weight: bold;
+    height: 5vh;
+    font-size: 4vh;
+
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 70vh;
+}
+
+.party-one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.character-one {
+    border: 1px solid green;
+    height: 10vh;
+    width: 10vh;
+    background-color: green;
+}
+
+.party-two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.character-two {
+    border: 1px solid green;
+    height: 10vh;
+    width: 10vh;
+    background-color: green;
+}
+
+.boss-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boss {
+    border: 1px solid red;
+    height: 25vh;
+    width: 25vh;
+    background-color: red;
+}
