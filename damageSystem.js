@@ -17,23 +17,33 @@ let partyTwo = {
     }
 }
 
-
-
 // boss hp
-let bossHp = 1000
-hpBar.textContent = bossHp
-
+let bossHp = 100
+let bossHpText = bossHp
+let bossLevel = 1
+hpBar.textContent = Number(bossHp * bossLevel)
 // character damage range
 var range = 5
 
 function handleDamage() {
-    bossHp = bossHp - (partyOne.characterOne.range + partyTwo.characterOne.range)
-    console.log("bossHp", bossHp)
-    hpBar.textContent = bossHp
+    console.log(bossHpText)
+    bossHpText = bossHpText - (partyOne.characterOne.range + partyTwo.characterOne.range)
+    console.log("bossHpText", bossHpText)
+    hpBar.textContent = bossHpText
+
+    if (bossHpText === 0) {
+        handleNewBoss()
+    }
 }
 
+// new boss when current defeated
+function handleNewBoss() {
+    bossLevel = bossLevel + 1
+    console.log("bossLevel", bossLevel)
+    bossHpText = bossHp * bossLevel
+    hpBar.textContent = bossHpText
+}
+
+
 setInterval(handleDamage, 1000)
-
-
-
 boss.addEventListener("click", handleDamage);
