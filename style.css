@@ -61,15 +61,40 @@ body {
     background-color: green;
 }
 
-.boss-grid {
+
+.center-grid {
+    height: 70vh;
     display: flex;
-    justify-content: center;
+    justify-content:space-evenly;
     align-items: center;
+    flex-direction: column;
+
+}
+
+.monsters-grid {
+
+}
+
+.monster-name {
+    color: black;
+    font-weight: bold;
+    height: 5vh;
+    font-size: 4vh;
+
 }
 
 .boss {
     border: 1px solid red;
-    height: 25vh;
-    width: 25vh;
+    height: 20vh;
+    width: 20vh;
     background-color: red;
+    display: none;
+
+}
+
+.mob {
+    border: 1px solid blue;
+    height: 15vh;
+    width: 15vh;
+    background-color: blue;
 }
