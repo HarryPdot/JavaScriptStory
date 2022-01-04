@@ -46,12 +46,15 @@ let counter = 1
 let mobHp = ""
 let waveLevel = 1
 
+// handleMobImages
 var mob1 = '<ms-mob sprite="./assets/images/snail_stand.png" id="mob"/>'
 var mob2 = '<ms-mob sprite="./assets/images/blue_snail_stand.png" id="mob"/>'
 var mob3 = '<ms-mob sprite="./assets/images/red_snail_stand.png" id="mob"/>'
 var mob4 = '<ms-mob sprite="./assets/images/mano_stand.png" id="mob"/>'
 
-// handles current mob
+var render = function (template, node) {
+    node.innerHTML = template;
+};
 function currentMob() {
     if (counter % 4 == 1) {
         mobNameText.textContent = "mob1"
@@ -67,13 +70,11 @@ function currentMob() {
         mobHp = Number(mobs[3].hp * waveLevel)
     }
 }
-
+handleMobImages()
 currentMob()
 
 // current mob hp bar
 let mobHpText = mobHp
-// let bossHpText = bossHp
-
 hpBar.textContent = Number(mobHp * waveLevel)
 
 //handles the damage to the mob
@@ -135,4 +136,4 @@ function handleExperience(){
 
 
 setInterval(handleDamage, 500)
-mobImage.addEventListener("click", handleDamage);
+// mobImage.addEventListener("click", handleDamage);
