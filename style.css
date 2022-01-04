@@ -92,3 +92,28 @@ audio {
     width: 15vh;
     background-color: blue;
 } */
+
+.footer-tab {
+    position: absolute;
+    display: flex;
+    justify-content:space-between;
+    bottom:0;
+    width: 100vw;
+    height: 5vh;
+    align-items: center;
+    border: 1px blue solid
+}
+
+.experience-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 80%;
+    border: 2px black solid;
+    background-color: yellow;
+}
+
+.experience {
+    
+}
