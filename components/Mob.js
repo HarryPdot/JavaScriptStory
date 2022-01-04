@@ -1,9 +1,10 @@
-const mobTemplate = document.createElement("mobTemplate");
-
 template.innerHTML = `
     <style>
         .mob {
-            border: 5px solid blue;
+        }
+
+        img {
+            display: block;
         }
     </style>
 
@@ -11,16 +12,13 @@ template.innerHTML = `
         <img/>
     </div>
 `
-class mob extends HTMLElement {
+class Mob extends HTMLElement {
     constructor() {
         super();
-
         const shadow = this.attachShadow({mode: 'open'});
-
         shadow.appendChild(template.content.cloneNode(true));
-
         shadow.querySelector("img").src = this.getAttribute("sprite");
     }
 }
 
-window.customElements.define("ms-mob", mob)
+window.customElements.define("ms-mob", Mob)
