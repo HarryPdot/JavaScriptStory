@@ -1,9 +1,10 @@
-const template = document.createElement('template');
-
 template.innerHTML = `
     <style>
         .character {
-            border: 5px solid yellow;
+        }
+
+        img {
+            display: block;
         }
     </style>
 

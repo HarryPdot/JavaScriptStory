@@ -3,7 +3,7 @@ var hpBar = document.querySelector(".health-bar")
 // var characterTwo = document.querySelector(".character-two")
 var bossImage = document.querySelector(".boss")
 var mobImage = document.getElementById("mob")
-var monsterNameText = document.querySelector(".monsterNameText")
+var mobNameText = document.querySelector(".mobNameText")
 
 // character stats
 let partyOne = {
@@ -21,9 +21,9 @@ let partyTwo = {
     }
 }
 
-// current monster
-let monstersOrder = ["mob1", "mob2", "mob3", "boss"]
-let monsters = [
+// current mob
+let mobOrder = ["mob1", "mob2", "mob3", "boss"]
+let mobs = [
         mob1= {
             name: "mob1",
             hp: 30
@@ -46,51 +46,51 @@ let counter = 1
 let mobHp = ""
 let waveLevel = 1
 
-// handles current monster
-function currentMonster() {
+// handles current mob
+function currentMob() {
     if (counter % 4 == 1) {
-        monsterNameText.textContent = "mob1"
-        mobHp = Number(monsters[0].hp * waveLevel)
+        mobNameText.textContent = "mob1"
+        mobHp = Number(mobs[0].hp * waveLevel)
     } else if ( counter % 4 == 2) {
-        monsterNameText.textContent = "mob2"
-        mobHp = Number(monsters[1].hp * waveLevel)
+        mobNameText.textContent = "mob2"
+        mobHp = Number(mobs[1].hp * waveLevel)
     } else if ( counter % 4 == 3) {
-        monsterNameText.textContent = "mob3"
-        mobHp = Number(monsters[2].hp * waveLevel)
+        mobNameText.textContent = "mob3"
+        mobHp = Number(mobs[2].hp * waveLevel)
     } else if ( counter % 4 == 0) {
-        monsterNameText.textContent = "boss"
-        mobHp = Number(monsters[3].hp * waveLevel)
+        mobNameText.textContent = "boss"
+        mobHp = Number(mobs[3].hp * waveLevel)
     }
 }
 
-currentMonster()
+currentMob()
 
-// current monster hp bar
+// current mob hp bar
 let mobHpText = mobHp
 // let bossHpText = bossHp
 
 hpBar.textContent = Number(mobHp * waveLevel)
 
-//handles the damage to the monster
+//handles the damage to the mob
 function handleDamage() {
     mobHp = mobHp - (partyOne.characterOne.range + partyTwo.characterOne.range)
     console.log("mobHp", mobHp)
     hpBar.textContent = mobHp
 
     if (mobHp === 0) {
-        handleNewMonster()
+        handleNewMob()
         handleExperience()
     }
 }
 
 // new boss when current defeated
-function handleNewMonster() {
+function handleNewMob() {
     if(counter % 4 == 0){
         waveLevel = waveLevel + 1
         console.log("waveLevel", waveLevel)
     }
     counter ++
-    currentMonster()
+    currentMob()
     console.log("counter", counter)
 }
 
