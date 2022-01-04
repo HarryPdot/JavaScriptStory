@@ -114,5 +114,5 @@ function handleExperience(){
 
 
 
-// setInterval(handleDamage, 500)
+setInterval(handleDamage, 500)
 mobImage.addEventListener("click", handleDamage);
