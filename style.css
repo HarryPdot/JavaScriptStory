@@ -20,6 +20,12 @@ body {
     overflow: hidden;
 }
 
+audio {
+    width: 240px;
+    height: 32px;
+    margin: 4px;
+}
+
 .hp-bar {
     height: 5vh;
 }
