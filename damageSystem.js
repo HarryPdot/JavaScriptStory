@@ -46,6 +46,11 @@ let counter = 1
 let mobHp = ""
 let waveLevel = 1
 
+var mob1 = '<ms-mob sprite="./assets/images/snail_stand.png" id="mob"/>'
+var mob2 = '<ms-mob sprite="./assets/images/blue_snail_stand.png" id="mob"/>'
+var mob3 = '<ms-mob sprite="./assets/images/red_snail_stand.png" id="mob"/>'
+var mob4 = '<ms-mob sprite="./assets/images/mano_stand.png" id="mob"/>'
+
 // handles current mob
 function currentMob() {
     if (counter % 4 == 1) {
@@ -91,7 +96,22 @@ function handleNewMob() {
     }
     counter ++
     currentMob()
+    handleMobImages()
+
     console.log("counter", counter)
+}
+
+// new mob appears
+function handleMobImages() {
+    if(counter % 4 == 1){
+        render(mob1, document.querySelector('.mob-grid'))
+    } else if (counter % 4 == 2) {
+        render(mob2, document.querySelector('.mob-grid'))
+    } else if (counter % 4 == 3) {
+        render(mob3, document.querySelector('.mob-grid'))
+    } else if (counter % 4 == 0) {
+        render(mob4, document.querySelector('.mob-grid'))
+    }
 }
 
 // handle character level experience
