@@ -5,8 +5,8 @@ var bossImage = document.querySelector(".boss")
 var mobImage = document.getElementById("mob")
 var centerGrid = document.querySelector(".center-grid")
 var mobNameText = document.querySelector(".mobNameText")
-var currentExperience = document.querySelector(".experience")
-var totalExperience = document.querySelector(".total-experience")
+var currentProgress = document.querySelector("#current-progress")
+var currentLevel = document.querySelector("#current-level")
 
 // character stats
 let partyOne = {
@@ -29,6 +29,8 @@ let partyTwo = {
     }
 }
 
+currentProgress.style.width = Number((partyOne.characterOne.experience / partyOne.characterOne.totalLevelExperience) * 100) + "%"
+currentLevel.textContent = partyOne.characterOne.level
 
 // current mob
 let mobOrder = ["mob1", "mob2", "mob3", "boss"]
@@ -59,8 +61,7 @@ let mobs = [
 let counter = 1
 let mobHp = ""
 let waveLevel = 1
-currentExperience.textContent = partyOne.characterOne.experience
-totalExperience.textContent = partyOne.characterOne.totalLevelExperience
+
 
 // handleMobImages
 var mob1 = '<ms-mob sprite="./assets/images/snail_stand.png" id="mob"/>'
@@ -145,36 +146,43 @@ function handleExperience(){
     console.log("character exp", partyOne.characterOne.experience)
     if(partyOne.characterOne.experience >= partyOne.characterOne.totalLevelExperience) {
         console.log("level up")
+        partyOne.characterOne.expRemainder = partyOne.characterOne.experience % partyOne.characterOne.totalLevelExperience
         handleLevelUp()
-        partyOne.characterOne.experience = partyOne.characterOne.experience % partyOne.characterOne.totalLevelExperience
-        console.log("character exp", partyOne.characterOne.experience)
     }
-    currentExperience.textContent = partyOne.characterOne.experience
-    totalExperience.textContent = partyOne.characterOne.totalLevelExperience
+    currentProgress.style.width = Number((partyOne.characterOne.experience / partyOne.characterOne.totalLevelExperience) * 100) + "%"
 }
 
 function handleLevelUp() {
     let i = partyOne.characterOne.level
     if(i <= 9) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.8)
-        partyOne.characterOne.range += 5
+        partyOne.characterOne.range += 10
     } else if(i <= 29) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.7)
+        partyOne.characterOne.range += 50
     } else if(i <= 39) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.5)
+        partyOne.characterOne.range += 150
     } else if(i <= 59) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.3)
+        partyOne.characterOne.range += 300
     } else if(i <= 79) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.2)
+        partyOne.characterOne.range += 750
     } else if(i <= 89) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.2)
+        partyOne.characterOne.range += 1100
     } else if(i <= 99) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.1)
+        partyOne.characterOne.range += 2000
     }
     console.log("playerOneTotalExp", partyOne.characterOne.totalLevelExperience)
     partyOne.characterOne.level += 1
+    currentLevel.textContent = partyOne.characterOne.level
     console.log("level", partyOne.characterOne.level)
-
+    partyOne.characterOne.experience = partyOne.characterOne.expRemainder
+    currentProgress.style.width = Number((partyOne.characterOne.experience / partyOne.characterOne.totalLevelExperience) * 100) + "%"
+    partyOne.characterOne.expRemainder = 0
 }
 
 setInterval(handleDamage, 500)
