@@ -64,6 +64,8 @@ let mobs = [
 let counter = 1
 let mobHp = ""
 let waveLevel = 1
+let critChance;
+let damageDealt = 0
 
 
 // handle image components
@@ -72,15 +74,6 @@ var mob2 = '<ms-mob sprite="./assets/images/blue_snail_stand.png" id="mob"/>'
 var mob3 = '<ms-mob sprite="./assets/images/red_snail_stand.png" id="mob"/>'
 var mob4 = '<ms-mob sprite="./assets/images/mano_stand.png" id="mob"/>'
 var damage0 = '<damage-line sprite="./assets/images/Damage-skins/normal-0.png" id="normal-0"/>'
-var damage1 = '<damage-line sprite="./assets/images/Damage-skins/normal-1.png" id="normal-1"/>'
-var damage2 = '<damage-line sprite="./assets/images/Damage-skins/normal-2.png" id="normal-2"/>'
-var damage3 = '<damage-line sprite="./assets/images/Damage-skins/normal-3.png" id="normal-3"/>'
-var damage4 = '<damage-line sprite="./assets/images/Damage-skins/normal-4.png" id="normal-4"/>'
-var damage5 = '<damage-line sprite="./assets/images/Damage-skins/normal-5.png" id="normal-5"/>'
-var damage6 = '<damage-line sprite="./assets/images/Damage-skins/normal-6.png" id="normal-6"/>'
-var damage7 = '<damage-line sprite="./assets/images/Damage-skins/normal-7.png" id="normal-7"/>'
-var damage8 = '<damage-line sprite="./assets/images/Damage-skins/normal-8.png" id="normal-8"/>'
-var damage9 = '<damage-line sprite="./assets/images/Damage-skins/normal-9.png" id="normal-9"/>'
 
 
 var render = function (template, node) {
@@ -110,7 +103,15 @@ hpBar.textContent = Number(mobHp * waveLevel)
 
 //handles the damage to the mob
 function handleDamage() {
-    mobHp = mobHp - (partyOne.characterOne.range + partyTwo.characterOne.range)
+    critChance = Math.floor(Math.random()*100)
+    if(critChance <= 10){
+        damageDealt = partyOne.characterOne.range * 2
+        mobHp = mobHp - damageDealt
+    } else {
+        damageDealt = damageDealt = partyOne.characterOne.range
+        mobHp = mobHp - damageDealt
+    }
+    resetDamageImage()
     handleDamageImage()
     hpBar.textContent = mobHp
     if (mobHp <= 0) {
@@ -130,7 +131,6 @@ function handleNewMob() {
     currentMob()
     handleMobImages()
     hpBar.textContent = mobHp
-    console.log("counter", counter)
 }
 
 // new mob appears
@@ -173,25 +173,25 @@ function handleLevelUp() {
     let i = partyOne.characterOne.level
     if(i <= 9) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.8)
-        partyOne.characterOne.range += 11
+        partyOne.characterOne.range += 5
     } else if(i <= 29) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.7)
-        partyOne.characterOne.range += 50
+        partyOne.characterOne.range += 7
     } else if(i <= 39) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.5)
-        partyOne.characterOne.range += 150
+        partyOne.characterOne.range += 10
     } else if(i <= 59) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.3)
-        partyOne.characterOne.range += 300
+        partyOne.characterOne.range += 15
     } else if(i <= 79) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.2)
-        partyOne.characterOne.range += 750
+        partyOne.characterOne.range += 20
     } else if(i <= 89) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.2)
-        partyOne.characterOne.range += 1100
+        partyOne.characterOne.range += 30
     } else if(i <= 99) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.1)
-        partyOne.characterOne.range += 2000
+        partyOne.characterOne.range += 40
     }
     partyOne.characterOne.level += 1
     currentLevel.textContent = partyOne.characterOne.level
@@ -203,9 +203,10 @@ function handleLevelUp() {
 
 function handleMobExp() {
     for(i=0; i < mobs.length; i++){
-        mobs[i].experience = Math.floor(mobs[i].experience * 1.5)
+        mobs[i].experience = Math.floor(mobs[i].experience * 1.2)
     }
 }
+
 var lines = 0
 var linesArr = ""
 let num1 = 0
@@ -215,7 +216,7 @@ let num4 = 0
 let num5 = 0
 let num6 = 0
 function handleDamageImage() {
-    lines = partyOne.characterOne.range
+    lines = damageDealt
     linesArr = String(lines).split("")
     num1 = Number(linesArr[0])
     num2 = Number(linesArr[1])
@@ -226,34 +227,37 @@ function handleDamageImage() {
     if(Number(linesArr[0]) === num1) {
         damage0 = `<damage-line sprite='./assets/images/Damage-skins/normal-${num1}.png' id='normal-0'/>`
         render(damage0, document.querySelector('.damage-line-1'))
-        console.log("0")
     }
     if(Number(linesArr[1]) === num2) {
         damage0 = `<damage-line sprite='./assets/images/Damage-skins/normal-${num2}.png' id='normal-0'/>`
         render(damage0, document.querySelector('.damage-line-2'))
-        console.log("0")
     }
-    if(Number(linesArr[1]) === num3) {
+    if(Number(linesArr[2]) === num3) {
         damage0 = `<damage-line sprite='./assets/images/Damage-skins/normal-${num3}.png' id='normal-0'/>`
         render(damage0, document.querySelector('.damage-line-3'))
-        console.log("0")
     }
-    if(Number(linesArr[1]) === num4) {
+    if(Number(linesArr[3]) === num4) {
         damage0 = `<damage-line sprite='./assets/images/Damage-skins/normal-${num4}.png' id='normal-0'/>`
         render(damage0, document.querySelector('.damage-line-4'))
-        console.log("0")
     }
-    if(Number(linesArr[1]) === num5) {
+    if(Number(linesArr[4]) === num5) {
         damage0 = `<damage-line sprite='./assets/images/Damage-skins/normal-${num5}.png' id='normal-0'/>`
         render(damage0, document.querySelector('.damage-line-5'))
-        console.log("0")
     }
-    if(Number(linesArr[1]) === num6) {
+    if(Number(linesArr[5]) === num6) {
         damage0 = `<damage-line sprite='./assets/images/Damage-skins/normal-${num6}.png' id='normal-0'/>`
         render(damage0, document.querySelector('.damage-line-6'))
-        console.log("0")
     }
 }
+removeDamage = ``
+function resetDamageImage() {
+    render(removeDamage, document.querySelector('.damage-line-1'))
+    render(removeDamage, document.querySelector('.damage-line-2'))
+    render(removeDamage, document.querySelector('.damage-line-3'))
+    render(removeDamage, document.querySelector('.damage-line-4'))
+    render(removeDamage, document.querySelector('.damage-line-5'))
+    render(removeDamage, document.querySelector('.damage-line-6'))
+}
 
-setInterval(handleDamage, 500)
+setInterval(handleDamage, 300)
 centerGrid.addEventListener("click", handleDamage);
