@@ -26,6 +26,18 @@ audio {
     margin: 4px;
 }
 
+.top-right {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    color: white;
+}
+
+#exp-gained {
+    color: white;
+}
+
+
 .hp-bar {
     height: 5vh;
 }

@@ -7,6 +7,9 @@ var centerGrid = document.querySelector(".center-grid")
 var mobNameText = document.querySelector(".mobNameText")
 var currentProgress = document.querySelector("#current-progress")
 var currentLevel = document.querySelector("#current-level")
+var expGained = document.querySelector("#exp-gained")
+
+
 
 // character stats
 let partyOne = {
@@ -110,6 +113,7 @@ function handleNewMob() {
     if(counter % 4 == 0){
         waveLevel = waveLevel + 1
         console.log("waveLevel", waveLevel)
+        handleMobExp()
     }
     counter ++
     currentMob()
@@ -136,16 +140,18 @@ function handleExperience(){
 
     if (counter % 4 == 2) {
       partyOne.characterOne.experience += mobs[0].experience
+      expGained.textContent = `+${mobs[0].experience} exp`
 		} else if ( counter % 4 == 3) {
 			partyOne.characterOne.experience += mobs[1].experience
+            expGained.textContent = `+${mobs[1].experience} exp`
 		} else if ( counter % 4 == 0) {
 			partyOne.characterOne.experience += mobs[2].experience
+            expGained.textContent = `+${mobs[2].experience} exp`
 		} else if ( counter % 4 == 1) {
 			partyOne.characterOne.experience += mobs[3].experience
+            expGained.textContent = `+${mobs[3].experience} exp`
     }
-    console.log("character exp", partyOne.characterOne.experience)
     if(partyOne.characterOne.experience >= partyOne.characterOne.totalLevelExperience) {
-        console.log("level up")
         partyOne.characterOne.expRemainder = partyOne.characterOne.experience % partyOne.characterOne.totalLevelExperience
         handleLevelUp()
     }
@@ -176,13 +182,18 @@ function handleLevelUp() {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.1)
         partyOne.characterOne.range += 2000
     }
-    console.log("playerOneTotalExp", partyOne.characterOne.totalLevelExperience)
     partyOne.characterOne.level += 1
     currentLevel.textContent = partyOne.characterOne.level
-    console.log("level", partyOne.characterOne.level)
     partyOne.characterOne.experience = partyOne.characterOne.expRemainder
     currentProgress.style.width = Number((partyOne.characterOne.experience / partyOne.characterOne.totalLevelExperience) * 100) + "%"
     partyOne.characterOne.expRemainder = 0
+
+}
+
+function handleMobExp() {
+    for(i=0; i < mobs.length; i++){
+        mobs[i].experience = Math.floor(mobs[i].experience * 1.5)
+    }
 }
 
 setInterval(handleDamage, 500)
