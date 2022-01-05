@@ -208,47 +208,52 @@ function handleMobExp() {
 }
 var lines = 0
 var linesArr = ""
+let num1 = 0
+let num2 = 0
+let num3 = 0
+let num4 = 0
+let num5 = 0
+let num6 = 0
 function handleDamageImage() {
-    console.log("yes")
     lines = partyOne.characterOne.range
-    console.log(lines)
     linesArr = String(lines).split("")
-    console.log(linesArr)
-    console.log(Number(linesArr[0]))
-    for(var i=0; i < linesArr.length; i++){
-        if(Number(linesArr[0]) === 0) {
-            render(damage0, document.querySelector('.damage-line-1'))
-            console.log("0")
-        } else if(Number(linesArr[0]) === 1) {
-            render(damage1, document.querySelector('.damage-line-1'))
-            console.log("1")
-        } else if(Number(linesArr[0]) === 2) {
-            render(damage2, document.querySelector('.damage-line-1'))
-            console.log("2")
-        } else if(Number(linesArr[0]) === 3) {
-            render(damage3, document.querySelector('.damage-line-1'))
-            console.log("3")
-        } else if(Number(linesArr[0]) === 4) {
-            render(damage4, document.querySelector('.damage-line-1'))
-            console.log("4")
-        } else if(Number(linesArr[0]) === 5) {
-            render(damage5, document.querySelector('.damage-line-1'))
-            console.log("5")
-        } else if(Number(linesArr[0]) === 6) {
-            render(damage6, document.querySelector('.damage-line-1'))
-            console.log("6")
-        } else if(Number(linesArr[0]) === 7) {
-            render(damage7, document.querySelector('.damage-line-1'))
-            console.log("7")
-        } else if(Number(linesArr[0]) === 8) {
-            render(damage8, document.querySelector('.damage-line-1'))
-            console.log("8")
-        } else if(Number(linesArr[0]) === 9) {
-            render(damage9, document.querySelector('.damage-line-1'))
-            console.log("9")
-        }      
+    num1 = Number(linesArr[0])
+    num2 = Number(linesArr[1])
+    num3 = Number(linesArr[2])
+    num4 = Number(linesArr[3])
+    num5 = Number(linesArr[4])
+    num6 = Number(linesArr[5])
+    if(Number(linesArr[0]) === num1) {
+        damage0 = `<damage-line sprite='./assets/images/Damage-skins/normal-${num1}.png' id='normal-0'/>`
+        render(damage0, document.querySelector('.damage-line-1'))
+        console.log("0")
+    }
+    if(Number(linesArr[1]) === num2) {
+        damage0 = `<damage-line sprite='./assets/images/Damage-skins/normal-${num2}.png' id='normal-0'/>`
+        render(damage0, document.querySelector('.damage-line-2'))
+        console.log("0")
+    }
+    if(Number(linesArr[1]) === num3) {
+        damage0 = `<damage-line sprite='./assets/images/Damage-skins/normal-${num3}.png' id='normal-0'/>`
+        render(damage0, document.querySelector('.damage-line-3'))
+        console.log("0")
+    }
+    if(Number(linesArr[1]) === num4) {
+        damage0 = `<damage-line sprite='./assets/images/Damage-skins/normal-${num4}.png' id='normal-0'/>`
+        render(damage0, document.querySelector('.damage-line-4'))
+        console.log("0")
+    }
+    if(Number(linesArr[1]) === num5) {
+        damage0 = `<damage-line sprite='./assets/images/Damage-skins/normal-${num5}.png' id='normal-0'/>`
+        render(damage0, document.querySelector('.damage-line-5'))
+        console.log("0")
+    }
+    if(Number(linesArr[1]) === num6) {
+        damage0 = `<damage-line sprite='./assets/images/Damage-skins/normal-${num6}.png' id='normal-0'/>`
+        render(damage0, document.querySelector('.damage-line-6'))
+        console.log("0")
     }
 }
 
-// setInterval(handleDamage, 500)
+setInterval(handleDamage, 500)
 centerGrid.addEventListener("click", handleDamage);

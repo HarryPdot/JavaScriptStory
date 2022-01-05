@@ -87,6 +87,11 @@ audio {
 
 }
 
+.damage {
+    display: flex;
+    margin-bottom: 1vh;
+}
+
 .mob-and-damage {
     display: flex;
     height: 65vh;
