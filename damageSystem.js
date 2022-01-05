@@ -66,11 +66,22 @@ let mobHp = ""
 let waveLevel = 1
 
 
-// handleMobImages
+// handle image components
 var mob1 = '<ms-mob sprite="./assets/images/snail_stand.png" id="mob"/>'
 var mob2 = '<ms-mob sprite="./assets/images/blue_snail_stand.png" id="mob"/>'
 var mob3 = '<ms-mob sprite="./assets/images/red_snail_stand.png" id="mob"/>'
 var mob4 = '<ms-mob sprite="./assets/images/mano_stand.png" id="mob"/>'
+var damage0 = '<damage-line sprite="./assets/images/Damage-skins/normal-0.png" id="normal-0"/>'
+var damage1 = '<damage-line sprite="./assets/images/Damage-skins/normal-1.png" id="normal-1"/>'
+var damage2 = '<damage-line sprite="./assets/images/Damage-skins/normal-2.png" id="normal-2"/>'
+var damage3 = '<damage-line sprite="./assets/images/Damage-skins/normal-3.png" id="normal-3"/>'
+var damage4 = '<damage-line sprite="./assets/images/Damage-skins/normal-4.png" id="normal-4"/>'
+var damage5 = '<damage-line sprite="./assets/images/Damage-skins/normal-5.png" id="normal-5"/>'
+var damage6 = '<damage-line sprite="./assets/images/Damage-skins/normal-6.png" id="normal-6"/>'
+var damage7 = '<damage-line sprite="./assets/images/Damage-skins/normal-7.png" id="normal-7"/>'
+var damage8 = '<damage-line sprite="./assets/images/Damage-skins/normal-8.png" id="normal-8"/>'
+var damage9 = '<damage-line sprite="./assets/images/Damage-skins/normal-9.png" id="normal-9"/>'
+
 
 var render = function (template, node) {
     node.innerHTML = template;
@@ -100,8 +111,8 @@ hpBar.textContent = Number(mobHp * waveLevel)
 //handles the damage to the mob
 function handleDamage() {
     mobHp = mobHp - (partyOne.characterOne.range + partyTwo.characterOne.range)
+    handleDamageImage()
     hpBar.textContent = mobHp
-
     if (mobHp <= 0) {
         handleNewMob()
         handleExperience()
@@ -162,7 +173,7 @@ function handleLevelUp() {
     let i = partyOne.characterOne.level
     if(i <= 9) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.8)
-        partyOne.characterOne.range += 10
+        partyOne.characterOne.range += 11
     } else if(i <= 29) {
         partyOne.characterOne.totalLevelExperience = Math.floor(partyOne.characterOne.totalLevelExperience * 1.7)
         partyOne.characterOne.range += 50
@@ -195,6 +206,49 @@ function handleMobExp() {
         mobs[i].experience = Math.floor(mobs[i].experience * 1.5)
     }
 }
+var lines = 0
+var linesArr = ""
+function handleDamageImage() {
+    console.log("yes")
+    lines = partyOne.characterOne.range
+    console.log(lines)
+    linesArr = String(lines).split("")
+    console.log(linesArr)
+    console.log(Number(linesArr[0]))
+    for(var i=0; i < linesArr.length; i++){
+        if(Number(linesArr[0]) === 0) {
+            render(damage0, document.querySelector('.damage-line-1'))
+            console.log("0")
+        } else if(Number(linesArr[0]) === 1) {
+            render(damage1, document.querySelector('.damage-line-1'))
+            console.log("1")
+        } else if(Number(linesArr[0]) === 2) {
+            render(damage2, document.querySelector('.damage-line-1'))
+            console.log("2")
+        } else if(Number(linesArr[0]) === 3) {
+            render(damage3, document.querySelector('.damage-line-1'))
+            console.log("3")
+        } else if(Number(linesArr[0]) === 4) {
+            render(damage4, document.querySelector('.damage-line-1'))
+            console.log("4")
+        } else if(Number(linesArr[0]) === 5) {
+            render(damage5, document.querySelector('.damage-line-1'))
+            console.log("5")
+        } else if(Number(linesArr[0]) === 6) {
+            render(damage6, document.querySelector('.damage-line-1'))
+            console.log("6")
+        } else if(Number(linesArr[0]) === 7) {
+            render(damage7, document.querySelector('.damage-line-1'))
+            console.log("7")
+        } else if(Number(linesArr[0]) === 8) {
+            render(damage8, document.querySelector('.damage-line-1'))
+            console.log("8")
+        } else if(Number(linesArr[0]) === 9) {
+            render(damage9, document.querySelector('.damage-line-1'))
+            console.log("9")
+        }      
+    }
+}
 
-setInterval(handleDamage, 500)
+// setInterval(handleDamage, 500)
 centerGrid.addEventListener("click", handleDamage);

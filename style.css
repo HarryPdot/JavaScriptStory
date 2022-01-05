@@ -82,13 +82,20 @@ audio {
     text-align: center;
 }
 
-.mob-grid {
+.damage-line-1 {
+    margin-bottom: 16px;
+
+}
+
+.mob-and-damage {
     display: flex;
     height: 65vh;
     width: 50vw;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
 }
+
 
 /* .boss {
     border: 1px solid red;
