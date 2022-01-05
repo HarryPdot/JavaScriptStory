@@ -18,7 +18,8 @@ let partyOne = {
         range: 5,
         experience: 0,
         totalLevelExperience: 50,
-        expRemainder: 0
+        expRemainder: 0,
+        critChance: 5
     }
 }
 
@@ -64,7 +65,7 @@ let mobs = [
 let counter = 1
 let mobHp = ""
 let waveLevel = 1
-let critChance;
+let critRandomIndex;
 let damageDealt = 0
 
 
@@ -103,12 +104,13 @@ hpBar.textContent = Number(mobHp * waveLevel)
 
 //handles the damage to the mob
 function handleDamage() {
-    critChance = Math.floor(Math.random()*100)
-    if(critChance <= 10){
-        damageDealt = partyOne.characterOne.range * 2
+    critRandomIndex = Math.floor(Math.random()*100)
+    if(critRandomIndex <= partyOne.characterOne.critChance){
+        console.log("crit")
+        damageDealt = Math.floor(partyOne.characterOne.range * 1.5)
         mobHp = mobHp - damageDealt
     } else {
-        damageDealt = damageDealt = partyOne.characterOne.range
+        damageDealt = Math.floor(partyOne.characterOne.range)
         mobHp = mobHp - damageDealt
     }
     resetDamageImage()
@@ -119,7 +121,6 @@ function handleDamage() {
         handleExperience()
     }
 }
-
 // new boss when current defeated
 function handleNewMob() {
     if(counter % 4 == 0){
