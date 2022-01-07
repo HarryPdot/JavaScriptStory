@@ -25,16 +25,16 @@ class DamageLine extends HTMLElement {
 window.customElements.define("damage-line", DamageLine)
 
 
-// var damage0 = '<damage-line sprite="./assets/images/Damage-skins/normal-0.png" id="normal-0"/>'
-// var damage1 = '<damage-line sprite="./assets/images/Damage-skins/normal-1.png" id="normal-0"/>'
-// var damage2 = '<damage-line sprite="./assets/images/Damage-skins/normal-2.png" id="normal-0"/>'
-// var damage3 = '<damage-line sprite="./assets/images/Damage-skins/normal-3.png" id="normal-0"/>'
-// var damage4 = '<damage-line sprite="./assets/images/Damage-skins/normal-4.png" id="normal-0"/>'
-// var damage5 = '<damage-line sprite="./assets/images/Damage-skins/normal-5.png" id="normal-0"/>'
-// var damage6 = '<damage-line sprite="./assets/images/Damage-skins/normal-6.png" id="normal-0"/>'
-// var damage7 = '<damage-line sprite="./assets/images/Damage-skins/normal-7.png" id="normal-0"/>'
-// var damage8 = '<damage-line sprite="./assets/images/Damage-skins/normal-8.png" id="normal-0"/>'
-// var damage9 = '<damage-line sprite="./assets/images/Damage-skins/normal-9.png" id="normal-0"/>'
+// var damage0 = '<damage-line sprite="./assets/images/damageSkin/normal-0.png" id="normal-0"/>'
+// var damage1 = '<damage-line sprite="./assets/images/damageSkin/normal-1.png" id="normal-0"/>'
+// var damage2 = '<damage-line sprite="./assets/images/damageSkin/normal-2.png" id="normal-0"/>'
+// var damage3 = '<damage-line sprite="./assets/images/damageSkin/normal-3.png" id="normal-0"/>'
+// var damage4 = '<damage-line sprite="./assets/images/damageSkin/normal-4.png" id="normal-0"/>'
+// var damage5 = '<damage-line sprite="./assets/images/damageSkin/normal-5.png" id="normal-0"/>'
+// var damage6 = '<damage-line sprite="./assets/images/damageSkin/normal-6.png" id="normal-0"/>'
+// var damage7 = '<damage-line sprite="./assets/images/damageSkin/normal-7.png" id="normal-0"/>'
+// var damage8 = '<damage-line sprite="./assets/images/damageSkin/normal-8.png" id="normal-0"/>'
+// var damage9 = '<damage-line sprite="./assets/images/damageSkin/normal-9.png" id="normal-0"/>'
 
 // render(damage0, document.querySelector('.damage-skin'))
 // render(damage1, document.querySelector('.damage-skin'))

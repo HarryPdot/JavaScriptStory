@@ -11,25 +11,25 @@ let mobs = [
         name: "snail",
         hp: 30,
         experience: 5,
-        imgElement: '<ms-mob sprite="./assets/images/Mob/snail_stand_0.png" id="mob"/>'
+        imgElement: '<ms-mob sprite="./assets/images/mob/snail_stand_0.png" id="mob"/>'
     },
     mob2= {
         name: "blue snail",
         hp: 80,
         experience: 10,
-        imgElement: '<ms-mob sprite="./assets/images/Mob/blue_snail_stand_0.png" id="mob"/>'
+        imgElement: '<ms-mob sprite="./assets/images/mob/blue_snail_stand_0.png" id="mob"/>'
     },
     mob3= {
         name: "red snail",
         hp: 150,
         experience: 20,
-        imgElement: '<ms-mob sprite="./assets/images/Mob/red_snail_stand_0.png" id="mob"/>'
+        imgElement: '<ms-mob sprite="./assets/images/mob/red_snail_stand_0.png" id="mob"/>'
     },
     mob4= {
         name: "mano",
         hp: 400,
         experience: 50,
-        imgElement: '<ms-mob sprite="./assets/images/Mob/mano_stand_0.png" id="mob"/>'
+        imgElement: '<ms-mob sprite="./assets/images/mob/mano_stand_0.png" id="mob"/>'
     }
 ]
 

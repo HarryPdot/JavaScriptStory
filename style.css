@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    background-image: url("./assets/images/Map/lith_backdrop.png");
+    background-image: url("./assets/images/map/lith_backdrop.png");
     background-position: center;
     background-repeat: repeat-x;
     background-attachment: scroll;
