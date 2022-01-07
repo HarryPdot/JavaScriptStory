@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="start-screen">
+        JavaScriptStory
+        <button onClick="startGame()">START</button>
+    </div>
+
     <div class="container">
         <audio controls="controls" src="https://maplestory.io/api/GMS/210.1.1/map/104010000/bgm" loop="loop"></audio>
 
@@ -36,20 +41,20 @@
         <div class="footer-tab">
             <div id="level-text">level: <span id="current-level"></span></div>
             <div id="progress-bar"><div id="current-progress"></div></div>
+            <button onClick="hax()">spam4hax</button>
         </div>
 
         <img src="./assets/images/map/lith_platform.png"/>
     </div>
 
     <!-- SCRIPTS -->
-    <!-- Utility -->
     <script>
-        const template = document.createElement('template');
-    
-        var render = function (template, node) {
-            node.innerHTML = template;
-        };
+        function hax() {
+            setInterval(attack, attackSpeed)
+        }
     </script>
+    <!-- Utility -->
+    <script src="./mixins/index.js"></script>
     <!-- Components -->
     <script src="./components/DamageLine.js"></script>
     <script src="./components/Character/Character.js"></script> 
