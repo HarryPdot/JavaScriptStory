@@ -24,6 +24,48 @@ body {
     color: white;
 }
 
+.start-screen-border {
+    /* border: 1px red solid; */
+    height: 35vh;
+    width: 25vh;
+    border: 6px solid rgb(221,221,204);
+    border-radius: 10px;
+    background-color: rgb(221,204,170);
+    background: linear-gradient(0deg, rgba(221,204,170) 80%, rgba(187,153,136) 95%, rgba(170,136,119) 100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.start-screen-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.start-screen-title {
+    font-size: 3vh;
+    font-weight: 800;
+    margin-top: 1vh;
+}
+
+.start-button {
+    height: 6vh;
+    width: 90%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 2px solid rgb(187,102,34);
+    border-bottom: 4px solid rgb(187,102,34);
+    background-color: rgb(238,170,34);
+    font-size: 3vh;
+    font-weight:700;
+    color: white;
+}
+
+
 #start-screen button:hover {
     cursor: url(assets/images/cursor/ms_default.cur), auto;
 }

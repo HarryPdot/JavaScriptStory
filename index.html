@@ -8,10 +8,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="start-screen">
-        JavaScriptStory
-        <button onClick="startGame()">START</button>
-    </div>
+
+        <div id="start-screen">
+            <div class="start-screen-border">
+                <div class="start-screen-title">JavaScriptStory</div>
+                <div class="start-screen-stats">
+                    <div class="start-screen-level">Lv. 1</div>
+                    <div class="start-screen-class">Class: Thief</div>
+                </div>
+                <button class="start-button" onClick="startGame()">START</button>
+            </div>
+        </div>
+
 
     <div class="container">
         <audio controls="controls" src="https://maplestory.io/api/GMS/210.1.1/map/104010000/bgm" loop="loop"></audio>
