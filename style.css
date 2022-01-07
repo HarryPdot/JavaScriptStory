@@ -24,7 +24,8 @@ body {
     color: white;
 }
 
-#start-screen button {
+#start-screen button:hover {
+    cursor: url(assets/images/cursor/ms_default.cur), auto;
 }
 
 .container {
