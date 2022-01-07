@@ -52,6 +52,7 @@ body {
     margin-top: 1vh;
 }
 
+
 .start-button {
     height: 6vh;
     width: 90%;
@@ -65,9 +66,14 @@ body {
     color: white;
 }
 
+.start-button:hover {
+	background-color: rgb(212, 147, 16);
+	transition: 0.3s;
+    cursor: url(assets/images/cursor/ms_default.cur), auto;
+}
 
 #start-screen button:hover {
-    cursor: url(assets/images/cursor/ms_default.cur), auto;
+
 }
 
 .container {
