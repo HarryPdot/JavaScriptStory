@@ -13,7 +13,7 @@ template.innerHTML = `
         <img/>
     </div>
 `
-class Damage extends HTMLElement {
+class DamageLine extends HTMLElement {
     constructor() {
         super();
         const shadow = this.attachShadow({mode: 'open'});
@@ -22,7 +22,7 @@ class Damage extends HTMLElement {
     }
 }
 
-window.customElements.define("damage-line", Damage)
+window.customElements.define("damage-line", DamageLine)
 
 
 // var damage0 = '<damage-line sprite="./assets/images/Damage-skins/normal-0.png" id="normal-0"/>'
