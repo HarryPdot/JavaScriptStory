@@ -3,7 +3,7 @@ function getDamage(rndInteger) {
 }
 
 function attack() {
-    new Audio("../assets/sounds/attack.wav").play();
+    new Audio("assets/sounds/attack.wav").play();
 
     mobHp -= getDamage(getRndInteger(1, 100));
     hpBar.textContent = mobHp

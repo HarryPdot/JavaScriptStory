@@ -22,7 +22,7 @@ function startGame() {
     const startMenu = document.getElementById("start-screen")
     startMenu.remove()
 
-    new Audio("../assets/sounds/click.wav").play();
+    new Audio("assets/sounds/click.wav").play();
     const bgm = document.querySelector('audio');
     bgm.play();
 };

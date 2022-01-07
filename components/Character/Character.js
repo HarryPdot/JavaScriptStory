@@ -96,7 +96,7 @@ function handleLevelUp() {
         stats.range += 40
     }
 
-    new Audio("../assets/sounds/lvlup.wav").play();
+    new Audio("assets/sounds/lvlup.wav").play();
     stats.level += 1
     currentLevel.textContent = stats.level
     stats.experience = stats.expRemainder
