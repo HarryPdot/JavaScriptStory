@@ -14,49 +14,48 @@
         <div class="top-right"><span id="exp-gained"></span></div>
 
         <header class="hp-bar"><span class="health-bar"></span></header>
+        <header class="mob-name"><span class="mobNameText"></span></header>
         
         <div class="grid">
-            <div class="party-one">
-                <ms-character sprite="./assets/images/Character/beginner_stand_0.png"/>
+            <div class="character-container">
+                <ms-character sprite="./assets/images/character/beginner_stand_0.png"/>
             </div>
-
-            <div class="center-grid">
- 
-                <header class="mob-name"><span class="mobNameText"></span></header>
-                <div class="mob-and-damage">
-                    <div class="damage">
-                        <div class= "damage-line-1"></div>
-                        <div class= "damage-line-2"></div>
-                        <div class= "damage-line-3"></div>
-                        <div class= "damage-line-4"></div>
-                        <div class= "damage-line-5"></div>
-                        <div class= "damage-line-6"></div>
-                    </div>
-                    <div class="mob-grid"></div>
+            <div class="mob-container">
+                <div class="damage">
+                    <div class= "damage-line-1"></div>
+                    <div class= "damage-line-2"></div>
+                    <div class= "damage-line-3"></div>
+                    <div class= "damage-line-4"></div>
+                    <div class= "damage-line-5"></div>
+                    <div class= "damage-line-6"></div>
                 </div>
-            </div>
-
-            <div class="party-two">
-                <ms-character sprite="./assets/images/Character/beginner_stand_0.png"/>
+                <div class="mob-grid"></div>
             </div>
         </div>
+
         <div class="footer-tab">
             <div id="level-text">level: <span id="current-level"></span></div>
             <div id="progress-bar"><div id="current-progress"></div></div>
         </div>
 
-
-
-        <img src="./assets/images/Map/lith_platform.png"/>
+        <img src="./assets/images/map/lith_platform.png"/>
     </div>
 
     <!-- SCRIPTS -->
+    <!-- Utility -->
+    <script>
+        const template = document.createElement('template');
+    
+        var render = function (template, node) {
+            node.innerHTML = template;
+        };
+    </script>
     <!-- Components -->
-    <script>const template = document.createElement('template');</script>
-    <script src="./components/Damage-skin.js"></script>
-    <script src="./components/Character.js"></script> 
-    <script src="./components/Mob.js"></script>
-    <!-- Functions -->
-    <script src="damageSystem.js"></script>
+    <script src="./components/DamageLine.js"></script>
+    <script src="./components/Character/Character.js"></script> 
+    <script src="./components/Mob/Mob.js"></script>
+    <!-- Mixins -->
+    <script src="./mixins/damage.js"></script>
+    <script src="./mixins/mobs.js"></script>
 </body>
 </html>
