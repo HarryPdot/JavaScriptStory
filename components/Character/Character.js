@@ -39,7 +39,7 @@ let damageDealt = 0
 let stats = {
     // Damage
     range: 5,
-    attackSpeed: 1,
+    attackSpeed: 0.25,
     critChance: 5,
     // Level
     level: 1,
