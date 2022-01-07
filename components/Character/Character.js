@@ -34,12 +34,12 @@ var currentLevel = document.querySelector("#current-level")
 var currentProgress = document.querySelector("#current-progress")
 var expGained = document.querySelector("#exp-gained")
 
-let critRandomIndex;
 let damageDealt = 0
 
 let stats = {
     // Damage
     range: 5,
+    attackSpeed: 1,
     critChance: 5,
     // Level
     level: 1,
@@ -50,8 +50,8 @@ let stats = {
 
 function handleExperience(){
     if (counter % 4 == 2) {
-      stats.experience += mobs[0].experience
-      expGained.textContent = `+${mobs[0].experience} exp`
+        stats.experience += mobs[0].experience
+        expGained.textContent = `+${mobs[0].experience} exp`
 		} else if ( counter % 4 == 3) {
 			stats.experience += mobs[1].experience
             expGained.textContent = `+${mobs[1].experience} exp`
@@ -96,6 +96,7 @@ function handleLevelUp() {
         stats.range += 40
     }
 
+    new Audio("../assets/sounds/lvlup.wav").play();
     stats.level += 1
     currentLevel.textContent = stats.level
     stats.experience = stats.expRemainder
