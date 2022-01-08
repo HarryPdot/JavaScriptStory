@@ -109,3 +109,9 @@ currentProgress.style.width = Number((stats.experience / stats.totalLevelExperie
 
 // Define the new element
 window.customElements.define('ms-character', Character)
+
+// @todo: Fix experience bar
+function handleExp() {
+    // currentMobDetails.meta.exp gives you the exp of mob that just died
+    console.log('currentMobDetails.meta.exp', currentMobDetails.meta.exp)
+}
