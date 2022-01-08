@@ -44,7 +44,7 @@ let stats = {
     // Level
     level: 1,
     experience: 0,
-    totalLevelExperience: 50,
+    totalLevelExperience: 100,
     expRemainder: 0,
 }
 // Level up
@@ -85,15 +85,18 @@ function handleLevel() {
 }
 
 function handleRemainderExp(expRemainder) {
+
     if(expRemainder >= stats.totalLevelExperience) {
         handleExp(expRemainder)
+        
     } else {
         stats.experience = expRemainder
+        handleProgressBar()
     }
 }
 
 function handleStats() {
-
+    stats.range += 5
 }
 
 function handleProgressBar() {
