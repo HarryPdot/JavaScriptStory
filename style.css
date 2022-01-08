@@ -159,18 +159,18 @@ audio {
     font-weight: 700;
 }
 
-#level-text, #current-level {
+#lvl-text, #current-lvl {
     color: rgb(213, 216, 38);
 }
 
-#progress-bar {
+#exp-bar {
     background-color: rgb(100, 100, 100);
     border-radius: 4px;
     width: 30%;
     height: 65%;
 }
 
-#current-progress {
+#current-exp {
     width: 0%;
     height: 100%;
     background-color: rgb(213, 216, 38);
