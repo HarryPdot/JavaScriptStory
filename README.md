@@ -1,3 +1,3 @@
-# Maplestory-Idle
+# JavaScriptStory
 
 https://harrypdot.github.io/JavaScriptStory/

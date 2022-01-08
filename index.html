@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maplestory Idle</title>
+    <title>JavaScriptStory</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="static/favicon.png"/>
 </head>
 <body>
 
@@ -26,8 +27,9 @@
 
         <div class="top-right"><span id="exp-gained"></span></div>
 
-        <header class="hp-bar"><span class="health-bar"></span></header>
-        <header class="mob-name"><span class="mobNameText"></span></header>
+        <div id="mob-hp"></div>
+        <div id="mob-name"></div>
+        <div id="kill-counter"><span id="killed"></span>/<span id="required-kills"></span></div>
         
         <div class="grid">
             <div class="character-container">
@@ -35,7 +37,7 @@
             </div>
             <div class="mob-container">
                 <div id="damageLine"></div>
-                <div class="mob-grid"></div>
+                <div id="mob"></div>
             </div>
         </div>
 
@@ -54,12 +56,13 @@
             setInterval(attack, attackSpeed)
         }
     </script>
+    <!-- Data -->
+    <script src="./assets/data/mobs.js"></script>
     <!-- Utility -->
     <script src="./mixins/index.js"></script>
     <!-- Components -->
-    <script src="./components/DamageLine.js"></script>
-    <script src="./components/Character/Character.js"></script> 
-    <script src="./components/Mob/Mob.js"></script>
+    <script src="./components/Character.js"></script> 
+    <script src="./components/Mob.js"></script>
     <!-- Mixins -->
     <script src="./mixins/damage.js"></script>
     <script src="./mixins/mobs.js"></script>

@@ -51,10 +51,11 @@ function attack() {
     render(getDamageLine(damageDealt, isCrit), document.querySelector("#damageLine"));
 
     mobHp -= damageDealt;
-    hpBar.textContent = mobHp
+    mobHpElement.textContent = mobHp
+
     if (mobHp <= 0) {
-        handleNewMob()
-        handleExperience()
+        resetMob(currentMobDetails)
+        // handleExperience()
     }
 }
 

@@ -1,90 +1,81 @@
-var hpBar = document.querySelector(".health-bar")
-var mobImage = document.getElementById("mob")
-var mobNameText = document.querySelector(".mobNameText")
+const mobHpElement = document.querySelector('#mob-hp');
+const mobNameElement = document.querySelector('#mob-name');
+const killedElement = document.querySelector('#killed');
+const requiredKillsElement = document.querySelector('#required-kills');
 
-let mobHp = ""
-let mobHpText = mobHp
+// @todo: Add stages
+// let currentStage = 1;
+let mobHp;
+let currentMobDetails;
+let killed = 0;
 
-let mobOrder = ["mob1", "mob2", "mob3", "mob4"]
-let mobs = [
-    mob1= {
-        name: "snail",
-        hp: 30,
-        experience: 5,
-        imgElement: '<ms-mob sprite="./assets/images/mob/snail_stand_0.png" id="mob"/>'
-    },
-    mob2= {
-        name: "blue snail",
-        hp: 80,
-        experience: 10,
-        imgElement: '<ms-mob sprite="./assets/images/mob/blue_snail_stand_0.png" id="mob"/>'
-    },
-    mob3= {
-        name: "red snail",
-        hp: 150,
-        experience: 20,
-        imgElement: '<ms-mob sprite="./assets/images/mob/red_snail_stand_0.png" id="mob"/>'
-    },
-    mob4= {
-        name: "mano",
-        hp: 400,
-        experience: 50,
-        imgElement: '<ms-mob sprite="./assets/images/mob/mano_stand_0.png" id="mob"/>'
-    }
-]
+// Last mob in array is boss
+const stage1 = {
+    mobs: [
+        'Snail', 
+        'Blue Snail', 
+        'Red Snail', 
+        'Spore',
+        'Mano'
+    ],
+    requiredKills: 5,
+}
 
-let counter = 1
-let waveLevel = 1
+// Render initial states
+killedElement.textContent = killed;
+requiredKillsElement.textContent = stage1.requiredKills;
 
-function currentMob() {
-    if (counter % 4 == 1) {
-        mobNameText.textContent = mobs[0].name
-        mobHp = Number(mobs[0].hp * waveLevel)
-    } else if ( counter % 4 == 2) {
-        mobNameText.textContent = mobs[1].name
-        mobHp = Number(mobs[1].hp * waveLevel)
-    } else if ( counter % 4 == 3) {
-        mobNameText.textContent = mobs[2].name
-        mobHp = Number(mobs[2].hp * waveLevel)
-    } else if ( counter % 4 == 0) {
-        mobNameText.textContent = mobs[3].name
-        mobHp = Number(mobs[3].hp * waveLevel)
+// Initial load
+getNewMob();
+
+// Get mob data using mob NAME
+function getMobDetails(mobName) {
+    return mobsData.filter((mob) => mobName === mob.name)[0]
+}
+
+// Returns img element with gif using mob ID
+function getMobGif(id) {
+    return `<ms-mob id="${id}-gif" sprite="https://maplestory.io/api/GMS/210.1.1/mob/${id}/render/stand?bgColor=" />`
+}
+
+function updateKills(action) {
+    if(action === 'add') {
+        killed++;
+        killedElement.textContent = killed;
+    } else if (action === 'reset') {
+        killed = 0;
+        killedElement.textContent = killed;
     }
 }
 
-function handleNewMob() {
-    if(counter % 4 == 0){
-        waveLevel = waveLevel + 1
-        // console.log("waveLevel", waveLevel)
-        handleMobExp()
+function getNewMob(currentMob) {
+    let upcomingMobs = stage1.mobs
+
+    // Prevent current mob from being chosen next
+    if(currentMob !== undefined) {
+        upcomingMobs = stage1.mobs.filter((mobName) => currentMob.name !== mobName)
     }
 
-    counter ++
-    currentMob()
-    handleMobImages()
-    hpBar.textContent = mobHp
-}
-
-function handleMobImages() {
-    if(counter % 4 == 1){
-        render(mob1.imgElement, document.querySelector('.mob-grid'))
-    } else if (counter % 4 == 2) {
-        render(mob2.imgElement, document.querySelector('.mob-grid'))
-    } else if (counter % 4 == 3) {
-        render(mob3.imgElement, document.querySelector('.mob-grid'))
-    } else if (counter % 4 == 0) {
-        render(mob4.imgElement, document.querySelector('.mob-grid'))
+    // Spawn boss
+    if(killed > stage1.requiredKills) {
+        upcomingMobs = [stage1.mobs[stage1.mobs.length - 1]];
+        updateKills('reset');
     }
+
+    // Choose a random mob EXCLUDING boss
+    let randMobIndex = getRndInteger(0, upcomingMobs.length - 1);
+
+    // Get details
+    currentMobDetails = getMobDetails(upcomingMobs[randMobIndex]);
+    
+    // Update HTML
+    mobHp = currentMobDetails.meta.maxHP;
+    mobHpElement.textContent = mobHp;
+    mobNameElement.textContent = currentMobDetails.name;
+    render(getMobGif(currentMobDetails.id), document.querySelector('#mob'));
 }
 
-function handleMobExp() {
-    for(i=0; i < mobs.length; i++) {
-        mobs[i].experience = Math.floor(mobs[i].experience * 1.2)
-    }
+function resetMob(currentMob) {
+    updateKills('add');
+    getNewMob(currentMob); 
 }
-
-handleMobImages();
-currentMob();
-
-hpBar.textContent = Number(mobHp * waveLevel)
-
