@@ -27,8 +27,9 @@
 
         <div class="top-right"><span id="exp-gained"></span></div>
 
-        <header class="hp-bar"><span class="health-bar"></span></header>
-        <header class="mob-name"><span class="mobNameText"></span></header>
+        <div id="mob-hp"></div>
+        <div id="mob-name"></div>
+        <div id="kill-counter"><span id="killed"></span>/<span id="required-kills"></span></div>
         
         <div class="grid">
             <div class="character-container">
@@ -36,7 +37,7 @@
             </div>
             <div class="mob-container">
                 <div id="damageLine"></div>
-                <div class="mob-grid"></div>
+                <div id="mob"></div>
             </div>
         </div>
 
@@ -55,6 +56,8 @@
             setInterval(attack, attackSpeed)
         }
     </script>
+    <!-- Data -->
+    <script src="./assets/data/mobs.js"></script>
     <!-- Utility -->
     <script src="./mixins/index.js"></script>
     <!-- Components -->
