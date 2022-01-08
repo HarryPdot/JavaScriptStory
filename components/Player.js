@@ -55,7 +55,7 @@ function updateExpElement() {
 }
 
 function handleLevel() {
-    new Audio("assets/sounds/lvlup.wav").play();
+    playSound("assets/sounds/lvlup.wav")
 
     let expRemaining = playerStats.exp - playerStats.expToLvl;
 

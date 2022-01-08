@@ -22,7 +22,6 @@ function startGame() {
     const startMenu = document.getElementById("start-screen")
     startMenu.remove()
 
-    new Audio("assets/sounds/click.wav").play();
-    const bgm = document.querySelector('audio');
-    bgm.play();
+    playSound("assets/sounds/click.wav")
+    setAudio('play', document.querySelector('#bgm'), Map.getBGM(LITH_HARBOR))
 };
