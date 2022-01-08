@@ -47,63 +47,14 @@ let stats = {
     totalLevelExperience: 50,
     expRemainder: 0,
 }
+// Level up
+// range gain
+// exp gain
 
-function handleExperience(){
-    if (counter % 4 == 2) {
-        stats.experience += mobs[0].experience
-        expGained.textContent = `+${mobs[0].experience} exp`
-		} else if ( counter % 4 == 3) {
-			stats.experience += mobs[1].experience
-            expGained.textContent = `+${mobs[1].experience} exp`
-		} else if ( counter % 4 == 0) {
-			stats.experience += mobs[2].experience
-            expGained.textContent = `+${mobs[2].experience} exp`
-		} else if ( counter % 4 == 1) {
-			stats.experience += mobs[3].experience
-            expGained.textContent = `+${mobs[3].experience} exp`
-    }
 
-    if(stats.experience >= stats.totalLevelExperience) {
-        stats.expRemainder = stats.experience % stats.totalLevelExperience
-        handleLevelUp()
-    }
 
-    currentProgress.style.width = Number((stats.experience / stats.totalLevelExperience) * 100) + "%"
-}
 
-function handleLevelUp() {
-    let i = stats.level
-    if(i <= 9) {
-        stats.totalLevelExperience = Math.floor(stats.totalLevelExperience * 1.8)
-        stats.range += 5
-    } else if(i <= 29) {
-        stats.totalLevelExperience = Math.floor(stats.totalLevelExperience * 1.7)
-        stats.range += 7
-    } else if(i <= 39) {
-        stats.totalLevelExperience = Math.floor(stats.totalLevelExperience * 1.5)
-        stats.range += 10
-    } else if(i <= 59) {
-        stats.totalLevelExperience = Math.floor(stats.totalLevelExperience * 1.3)
-        stats.range += 15
-    } else if(i <= 79) {
-        stats.totalLevelExperience = Math.floor(stats.totalLevelExperience * 1.2)
-        stats.range += 20
-    } else if(i <= 89) {
-        stats.totalLevelExperience = Math.floor(stats.totalLevelExperience * 1.2)
-        stats.range += 30
-    } else if(i <= 99) {
-        stats.totalLevelExperience = Math.floor(stats.totalLevelExperience * 1.1)
-        stats.range += 40
-    }
-
-    new Audio("assets/sounds/lvlup.wav").play();
-    stats.level += 1
-    currentLevel.textContent = stats.level
-    stats.experience = stats.expRemainder
-    currentProgress.style.width = Number((stats.experience / stats.totalLevelExperience) * 100) + "%"
-    stats.expRemainder = 0
-}
-
+// Progress bar
 currentLevel.textContent = stats.level
 currentProgress.style.width = Number((stats.experience / stats.totalLevelExperience) * 100) + "%"
 
@@ -111,7 +62,40 @@ currentProgress.style.width = Number((stats.experience / stats.totalLevelExperie
 window.customElements.define('ms-character', Character)
 
 // @todo: Fix experience bar
-function handleExp() {
+// parameter exp - defines where the exp will be coming from. Will be easier to add new ways to gain exp for example - quests.
+function handleExp(exp) {
     // currentMobDetails.meta.exp gives you the exp of mob that just died
-    console.log('currentMobDetails.meta.exp', currentMobDetails.meta.exp)
+    stats.experience += exp
+    handleProgressBar()
+    // when level up, call handleLevel
+    if (stats.experience >= stats.totalLevelExperience) {
+        handleLevel()
+    }
+}
+
+function handleLevel() {
+    let expRemainder = stats.experience - stats.totalLevelExperience
+    stats.level += 1
+    stats.experience = 0
+    new Audio("assets/sounds/lvlup.wav").play()
+    handleProgressBar()
+    handleRemainderExp(expRemainder)
+    handleStats()
+    currentLevel.textContent = stats.level
+}
+
+function handleRemainderExp(expRemainder) {
+    if(expRemainder >= stats.totalLevelExperience) {
+        handleExp(expRemainder)
+    } else {
+        stats.experience = expRemainder
+    }
+}
+
+function handleStats() {
+
+}
+
+function handleProgressBar() {
+    currentProgress.style.width = Number((stats.experience / stats.totalLevelExperience) * 100) + "%"
 }

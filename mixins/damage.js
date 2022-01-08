@@ -55,7 +55,7 @@ function attack() {
 
     if (mobHp <= 0) {
         resetMob()
-        handleExp()
+        handleExp(currentMobDetails.meta.exp)
     }
 }
 
