@@ -54,8 +54,8 @@ function attack() {
     mobHpElement.textContent = mobHp
 
     if (mobHp <= 0) {
-        resetMob(currentMobDetails)
-        // handleExperience()
+        resetMob()
+        handleExp()
     }
 }
 

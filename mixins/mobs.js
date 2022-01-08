@@ -75,7 +75,7 @@ function getNewMob(currentMob) {
     render(getMobGif(currentMobDetails.id), document.querySelector('#mob'));
 }
 
-function resetMob(currentMob) {
+function resetMob() {
     updateKills('add');
-    getNewMob(currentMob); 
+    getNewMob(currentMobDetails); 
 }

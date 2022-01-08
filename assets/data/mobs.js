@@ -1,6 +1,6 @@
 /** How to get mobData
  * 1. Click on mob using https://maplestory.wiki/GMS/210.1.1/mob
- * 2. Copy mobID in at the end of URL
+ * 2. Copy mobID at the end of URL
  * 3. Hit API using mobID: https://maplestory.io/api/GMS/210.1.1/mob/{mobID}
  */
 
