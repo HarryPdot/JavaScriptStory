@@ -1,9 +1,9 @@
 function isCritical(rndInteger) {
-    return rndInteger <= characterStats.critChance
+    return rndInteger <= playerStats.critChance
 }
 
 function getDamage(isCrit) {
-    return isCrit ? Math.floor(characterStats.range * 1.5) : Math.floor(characterStats.range)
+    return isCrit ? Math.floor(playerStats.range * 1.5) : Math.floor(playerStats.range)
 }
 
 function getDamageLine(damageDealt, isCrit) {
@@ -60,7 +60,7 @@ function attack() {
 }
 
 // Idle attack
-let attackSpeed = 300/characterStats.attackSpeed
+let attackSpeed = 300/playerStats.attackSpeed
 
 // Active attack
 const grid = document.querySelector(".grid");

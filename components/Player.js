@@ -1,6 +1,6 @@
 template.innerHTML = `
     <style>
-        .character {
+        .player {
         }
 
         img {
@@ -8,13 +8,13 @@ template.innerHTML = `
         }
     </style>
 
-    <div class="character">
+    <div class="player">
         <img/>
     </div>
 `
 
 // Create a class for the element
-class Character extends HTMLElement {
+class Player extends HTMLElement {
     constructor() {
         // Always call super first in constructor
         super();
@@ -31,12 +31,12 @@ class Character extends HTMLElement {
 }
 
 // Define the new element
-window.customElements.define('ms-character', Character)
+window.customElements.define('ms-player', Player)
 
 const currentLevelElement = document.querySelector("#current-lvl")
 const currentExpElement = document.querySelector("#current-exp")
 
-let characterStats = {
+let playerStats = {
     range: 5,
     attackSpeed: 0.25,
     critChance: 5,
@@ -47,36 +47,36 @@ let characterStats = {
 }
 
 // Render initial states
-currentLevelElement.textContent = characterStats.lvl;
+currentLevelElement.textContent = playerStats.lvl;
 updateExpElement();
 
 function updateExpElement() {
-    currentExpElement.style.width = Number((characterStats.exp / characterStats.expToLvl) * 100) + "%";
+    currentExpElement.style.width = Number((playerStats.exp / playerStats.expToLvl) * 100) + "%";
 }
 
 function handleLevel() {
     new Audio("assets/sounds/lvlup.wav").play();
 
-    let expRemaining = characterStats.exp - characterStats.expToLvl;
+    let expRemaining = playerStats.exp - playerStats.expToLvl;
 
-    characterStats.lvl++;
-    characterStats.exp = 0;
+    playerStats.lvl++;
+    playerStats.exp = 0;
     
-    if(expRemaining >= characterStats.expToLvl) {
+    if(expRemaining >= playerStats.expToLvl) {
         handleExp(expRemaining)
     } else {
-        characterStats.exp = expRemaining
+        playerStats.exp = expRemaining
     }
 
     // Update HTML
-    currentLevelElement.textContent = characterStats.lvl
+    currentLevelElement.textContent = playerStats.lvl
     updateExpElement();
 }
 
 function handleExp(exp) {
-    characterStats.exp += exp;
+    playerStats.exp += exp;
     updateExpElement();
-    if (characterStats.exp >= characterStats.expToLvl) {
+    if (playerStats.exp >= playerStats.expToLvl) {
         handleLevel();
     }
 }
