@@ -1,11 +1,11 @@
 let mobHpProgressBarElement = document.querySelector("#current-mob-hp-progress")
 
 function isCritical(rndInteger) {
-    return rndInteger <= stats.critChance
+    return rndInteger <= playerStats.critChance
 }
 
 function getDamage(isCrit) {
-    return isCrit ? Math.floor(stats.range * 1.5) : Math.floor(stats.range)
+    return isCrit ? Math.floor(playerStats.range * 1.5) : Math.floor(playerStats.range)
 }
 
 function mobHpProgressBar() {
@@ -70,7 +70,7 @@ function attack() {
 }
 
 // Idle attack
-let attackSpeed = 300/stats.attackSpeed
+let attackSpeed = 300/playerStats.attackSpeed
 
 // Active attack
 const grid = document.querySelector(".grid");
