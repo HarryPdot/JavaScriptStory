@@ -176,6 +176,22 @@ audio {
     background-color: rgb(213, 216, 38);
 }
 
+#progress-mob-hpbar {
+    background-color: rgb(100, 100, 100);
+    border-radius: 4px;
+    width: 30%;
+    height: 16px;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    border: 1px silver solid;
+}
+
+#current-mob-hp-progress {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(190, 0, 0);
+}
+
 /* Breakpoints
   'mobile':  360px,
   'tablet': 768px,

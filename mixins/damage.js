@@ -1,9 +1,16 @@
+let mobHpProgressBarElement = document.querySelector("#current-mob-hp-progress")
+
 function isCritical(rndInteger) {
     return rndInteger <= stats.critChance
 }
 
 function getDamage(isCrit) {
     return isCrit ? Math.floor(stats.range * 1.5) : Math.floor(stats.range)
+}
+
+function mobHpProgressBar() {
+    console.log(mobHp, currentMobDetails.meta.maxHP)
+    mobHpProgressBarElement.style.width = (Number(mobHp/currentMobDetails.meta.maxHP) * 100) + "%"
 }
 
 function getDamageLine(damageDealt, isCrit) {
@@ -53,9 +60,12 @@ function attack() {
     mobHp -= damageDealt;
     mobHpElement.textContent = mobHp
 
+    mobHpProgressBar()
+
     if (mobHp <= 0) {
         resetMob()
         handleExp(currentMobDetails.meta.exp)
+        mobHpProgressBar()
     }
 }
 
@@ -65,3 +75,7 @@ let attackSpeed = 300/stats.attackSpeed
 // Active attack
 const grid = document.querySelector(".grid");
 grid.addEventListener("click", () => attack());
+
+
+
+
