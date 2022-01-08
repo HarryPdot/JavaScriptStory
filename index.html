@@ -9,23 +9,21 @@
     <link rel="icon" type="image/png" href="static/favicon.png"/>
 </head>
 <body>
-
+    <div class="container">
         <div id="start-screen">
-            <div class="start-screen-border">
-                <div class="start-screen-title">JavaScriptStory</div>
-                <div class="start-screen-stats">
-                    <div class="start-screen-level">Lv. 1</div>
-                    <div class="start-screen-class">Class: Thief</div>
+            <div id="start-modal">
+                <h1>JavaScriptStory</h1>
+                <div id="modal-content">
+                    <span>Lv. 1</span>
+                    <span>Class: Thief</span>
                 </div>
-                <button class="start-button" onClick="startGame()">START</button>
+                <button onClick="startGame()">START</button>
             </div>
         </div>
 
-
-    <div class="container">
         <audio controls="controls" src="https://maplestory.io/api/GMS/210.1.1/map/104010000/bgm" loop="loop"></audio>
 
-        <div class="top-right"><span id="exp-gained"></span></div>
+        <!-- <div class="top-right"><span id="exp-gained"></span></div> -->
 
         <div id="mob-hp"></div>
         <div id="mob-name"></div>
@@ -33,7 +31,7 @@
         
         <div class="grid">
             <div class="character-container">
-                <ms-character sprite="./assets/images/character/beginner_stand_0.png"/>
+                <img src="./assets/images/character/beginner_stand_0.png"/>
             </div>
             <div class="mob-container">
                 <div id="damageLine"></div>
@@ -42,7 +40,7 @@
         </div>
 
         <div class="footer-tab">
-            <div id="level-text">level: <span id="current-level"></span></div>
+            <div id="level-text">LV. <span id="current-level"></span></div>
             <div id="progress-bar"><div id="current-progress"></div></div>
             <button onClick="hax()">spam4hax</button>
         </div>
