@@ -37,7 +37,8 @@ const currentLevelElement = document.querySelector("#current-lvl")
 const currentExpElement = document.querySelector("#current-exp")
 
 let playerStats = {
-    range: 5,
+    minRange: 5,
+    maxRange: 8,
     attackSpeed: 0.25,
     critChance: 5,
     lvl: 1,

@@ -1,15 +1,19 @@
 let mobHpProgressBarElement = document.querySelector("#current-mob-hp-progress")
 
+function playerRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 function isCritical(rndInteger) {
     return rndInteger <= playerStats.critChance
 }
 
 function getDamage(isCrit) {
-    return isCrit ? Math.floor(playerStats.range * 1.5) : Math.floor(playerStats.range)
+    let playerRanges = playerRange(playerStats.minRange, playerStats.maxRange)
+    return isCrit ? Math.floor(playerRanges * 1.5) : Math.floor(playerRanges)
 }
 
 function mobHpProgressBar() {
-    console.log(mobHp, currentMobDetails.meta.maxHP)
     mobHpProgressBarElement.style.width = (Number(mobHp/currentMobDetails.meta.maxHP) * 100) + "%"
 }
 
