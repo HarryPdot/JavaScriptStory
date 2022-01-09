@@ -5,12 +5,11 @@ template.innerHTML = `
 
         img {
             display: block;
-            -webkit-user-drag: none;
         }
     </style>
 
     <div class="mob">
-        <img/>
+        <img draggable="false"/>
     </div>
 `
 class Mob extends HTMLElement {
