@@ -1,16 +1,12 @@
 let mobHpProgressBarElement = document.querySelector("#current-mob-hp-progress")
 
-function playerRange(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
 function isCritical(rndInteger) {
     return rndInteger <= playerStats.critChance
 }
 
 function getDamage(isCrit) {
-    let playerRanges = playerRange(playerStats.minRange, playerStats.maxRange)
-    return isCrit ? Math.floor(playerRanges * 1.5) : Math.floor(playerRanges)
+    const baseDamage = getRndInteger(playerStats.minRange, playerStats.maxRange);
+    return isCrit ? Math.floor(baseDamage * 1.5) : Math.floor(baseDamage);
 }
 
 function mobHpProgressBar() {
@@ -23,20 +19,26 @@ function getDamageLine(damageDealt, isCrit) {
     // @todo: Create elements using JS & loops
     switch(digits.length) {
         case 1:
-            return `<img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[0]}.png"/>`
+            return `
+                ${isCrit ? '<img src="./assets/images/DamageSkin/crit-effect.png"/>' : ''}
+                <img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[0]}.png"/>
+            `
         case 2:
             return `
+                ${isCrit ? '<img src="./assets/images/DamageSkin/crit-effect.png"/>' : ''}
                 <img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[0]}.png"/>
                 <img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[1]}.png"/>
             `
         case 3:
             return `
+                ${isCrit ? '<img src="./assets/images/DamageSkin/crit-effect.png"/>' : ''}
                 <img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[0]}.png"/>
                 <img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[1]}.png"/>
                 <img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[2]}.png"/>
             `
         case 4:
             return `
+                ${isCrit ? '<img src="./assets/images/DamageSkin/crit-effect.png"/>' : ''}
                 <img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[0]}.png"/>
                 <img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[1]}.png"/>
                 <img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[2]}.png"/>
@@ -44,6 +46,7 @@ function getDamageLine(damageDealt, isCrit) {
             `
         case 5:
             return `
+                ${isCrit ? '<img src="./assets/images/DamageSkin/crit-effect.png"/>' : ''}
                 <img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[0]}.png"/>
                 <img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[1]}.png"/>
                 <img src="./assets/images/DamageSkin/${isCrit ? 'crit' : 'normal'}-${digits[2]}.png"/>
@@ -79,7 +82,3 @@ let attackSpeed = 300/playerStats.attackSpeed
 // Active attack
 const grid = document.querySelector(".grid");
 grid.addEventListener("click", () => attack());
-
-
-
-
