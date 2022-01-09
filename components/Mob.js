@@ -5,6 +5,7 @@ template.innerHTML = `
 
         img {
             display: block;
+            -webkit-user-drag: none;
         }
     </style>
 
