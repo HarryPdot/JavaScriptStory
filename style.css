@@ -117,11 +117,16 @@ body {
     font-size: 28px;
 }
 
-#mob-name, #kill-counter {
+#mob-name, #kill-counter, #boss-timer {
     color: black;
     font-weight: bold;
     font-size: 28px;
     text-align: center;
+}
+
+#boss-timer {
+    color: red;
+    display: none;
 }
 
 .grid {

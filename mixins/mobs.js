@@ -1,7 +1,8 @@
 const mobHpElement = document.querySelector('#mob-hp');
 const mobNameElement = document.querySelector('#mob-name');
 const killedElement = document.querySelector('#killed');
-const requiredKillsElement = document.querySelector('#required-kills');
+// const requiredKillsElement = document.querySelector('#required-kills');
+const bossTimerElement = document.querySelector('#boss-timer')
 
 // @todo: Add stages
 // let currentStage = 1;
@@ -49,7 +50,7 @@ function updateKills(action) {
         killCounter(killed, stage1.requiredKills);
     } else if (action === 'reset') {
         killed = 0;
-        killedElement.textContent = "Boss";
+        killedElement.textContent = "BOSS";
     }
 }
 
@@ -65,6 +66,8 @@ function getNewMob(currentMob) {
     if(killed > stage1.requiredKills) {
         upcomingMobs = [stage1.mobs[stage1.mobs.length - 1]];
         updateKills('reset');
+        //add bossTimer
+        bossTimer()
     }
 
     // Choose a random mob EXCLUDING boss
@@ -83,4 +86,22 @@ function getNewMob(currentMob) {
 function resetMob() {
     updateKills('add');
     getNewMob(currentMobDetails); 
+}
+
+function bossTimer() {
+    var timeleft = 60.99;
+    bossTimerElement.style.display = "block"
+    var downloadTimer = setInterval(function(){
+    if(timeleft <= 1){
+        clearInterval(downloadTimer);
+        bossTimerElement.style.display = "none"
+        resetMob()
+    } else if(killed !== 0){
+        bossTimerElement.style.display = "none"
+        clearInterval(downloadTimer);
+    }
+    bossTimerElement.textContent = Math.trunc(timeleft)
+    timeleft -= 0.1;
+    }, 100);
+    bossTimerElement.textContent = Math.trunc(60.99)
 }
