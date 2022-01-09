@@ -50,7 +50,7 @@ function getDamageLine(damageDealt, isCrit) {
 }
 
 function attack() {
-    new Audio("assets/sounds/attack.wav").play();
+    playSound("assets/sounds/attack.wav")
 
     let isCrit = isCritical(getRndInteger(1, 100))
     let damageDealt = getDamage(isCrit)

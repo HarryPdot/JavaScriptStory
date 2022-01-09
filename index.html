@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <audio controls="controls" src="https://maplestory.io/api/GMS/210.1.1/map/104010000/bgm" loop="loop"></audio>
+        <button id="toggle-mute" onClick="muteAll()">Sound ON</button>
 
         <!-- <div class="top-right"><span id="exp-gained"></span></div> -->
 
@@ -49,21 +49,28 @@
         <img src="./assets/images/map/lith_platform.png"/>
     </div>
 
+    <audio id="bgm" loop="loop"></audio>
+
     <!-- SCRIPTS -->
     <script>
         function hax() {
             setInterval(attack, attackSpeed)
         }
     </script>
+    <!-- Config -->
+    <script src="config.js"></script>
     <!-- Data -->
-    <script src="./assets/data/mobs.js"></script>
+    <script src="assets/data/mobs.js"></script>
     <!-- Utility -->
-    <script src="./mixins/index.js"></script>
+    <script src="mixins/index.js"></script>
     <!-- Components -->
-    <script src="./components/Player.js"></script> 
-    <script src="./components/Mob.js"></script>
+    <script src="components/Player.js"></script> 
+    <script src="components/Mob.js"></script>
     <!-- Mixins -->
-    <script src="./mixins/damage.js"></script>
-    <script src="./mixins/mobs.js"></script>
+    <script src="mixins/audio.js"></script>
+    <script src="mixins/damage.js"></script>
+    <script src="mixins/mobs.js"></script>
+    <!-- API -->
+    <script src="services/Map.js"></script>
 </body>
 </html>

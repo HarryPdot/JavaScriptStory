@@ -83,10 +83,14 @@ body {
     cursor: url(assets/images/cursor/ms_default.cur), auto;
 }
 
-audio {
-    width: 240px;
-    height: 32px;
-    margin: 4px;
+#toggle-mute {
+    width: 120px;
+    padding: 8px 12px;
+    margin: 8px;
+    border: none;
+    border-radius: 16px;
+    background-color: rgb(0, 0, 0, 0.5);
+    color: rgb(0, 255, 42);
 }
 
 .top-right {
