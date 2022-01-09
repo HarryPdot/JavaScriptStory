@@ -7,7 +7,7 @@ const requiredKillsElement = document.querySelector('#required-kills');
 // let currentStage = 1;
 let mobHp;
 let currentMobDetails;
-let killed = 0;
+let killed = 1;
 
 // Last mob in array is boss
 const stage1 = {
@@ -22,8 +22,9 @@ const stage1 = {
 }
 
 // Render initial states
-killedElement.textContent = killed;
-requiredKillsElement.textContent = stage1.requiredKills;
+// killedElement.textContent = killed;
+// requiredKillsElement.textContent = stage1.requiredKills;
+killCounter(killed, stage1.requiredKills);
 
 // Initial load
 getNewMob();
@@ -38,13 +39,17 @@ function getMobGif(id) {
     return `<ms-mob id="${id}-gif" sprite="https://maplestory.io/api/GMS/210.1.1/mob/${id}/render/stand?bgColor=" />`
 }
 
+function killCounter(killed, requiredKills) {
+    killedElement.textContent = `${killed}/${requiredKills}`
+}
+
 function updateKills(action) {
     if(action === 'add') {
         killed++;
-        killedElement.textContent = killed;
+        killCounter(killed, stage1.requiredKills);
     } else if (action === 'reset') {
         killed = 0;
-        killedElement.textContent = killed;
+        killedElement.textContent = "Boss";
     }
 }
 

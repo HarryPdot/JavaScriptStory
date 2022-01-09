@@ -6,7 +6,7 @@ var render = function (template, node) {
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
-  }
+}
 
 // onLoad
 window.addEventListener('load', (e) => {
