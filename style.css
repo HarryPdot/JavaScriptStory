@@ -36,12 +36,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.75);
+    background-color: black;
 }
 
 #start-modal {
+    display: none;
     position: relative;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -65,20 +65,20 @@ body {
     font-weight: 600;
 }
 
-#start-screen button {
+#start-modal button {
     width: 100%;
     height: 18%;
-    border: 2px solid rgb(187,102,34);
-    border-bottom: 4px solid rgb(187,102,34);
+    border: 2px solid rgb(187, 102, 34);
+    border-bottom: 4px solid rgb(187, 102, 34);
     border-radius: 10px;
-    background-color: rgb(238,170,34);
+    background-color: rgb(238, 170 , 34);
     color: white;
     font-size: 32px;
     font-weight: 700;
 }
 
-#start-screen button:hover {
-	background-color: rgb(212, 147, 16);
+#start-modal button:hover {
+	background-color: rgba(238 ,170 , 34, 0.5);
 	transition: 0.3s;
     cursor: url(assets/images/cursor/ms_default.cur), auto;
 }
