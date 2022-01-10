@@ -256,8 +256,14 @@ body {
 
 #progress-boss-hpbar {
     width: 100%;
-    height: 100%;
+    height: 16px;
 
+}
+
+#boss-image {
+    width: 47.5px;
+    height: 47.5px;
+    border: 2px solid red;
 }
 
 #boss-details {
@@ -269,6 +275,14 @@ body {
     display: none;
 }
 
+.boss-grid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    gap: 2px;
+}
 
 /* Breakpoints
   'mobile':  360px,
@@ -294,4 +308,17 @@ body {
     #start-screen button {
         font-size: calc(32px * 1.5);
     }
+}
+
+@media only screen and (max-height: 500px) {
+
+    #boss-details {
+        position: absolute;
+        left: 25%;
+        top: 35%;
+        width: 50%;
+        height: 16px;
+        display: none;
+    }
+
 }

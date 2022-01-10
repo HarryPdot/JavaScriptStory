@@ -96,23 +96,30 @@ function resetMob() {
     getNewMob(currentMobDetails); 
 }
 
+function hpBarSwitch(boolean) {
+    if (boolean === true) {
+        bossHpBarElement.style.display="block"
+        mobHpBarElement.style.display="none"
+    } else if (boolean === false) {
+        bossHpBarElement.style.display="none"
+        mobHpBarElement.style.display="block"
+    }
+}
+
 function bossTimer() {
     var timeleft = 60.99;
     bossTimerElement.style.visibility = "visible"
-    bossHpBarElement.style.display="block"
-    mobHpBarElement.style.visibility="hidden"
+    hpBarSwitch(true)
     var downloadTimer = setInterval(function(){
     if(timeleft <= 1){
         clearInterval(downloadTimer);
         bossTimerElement.style.visibility = "hidden"
         resetMob()
-        bossHpBarElement.style.display="none"
-        mobHpBarElement.style.visibility="visible"
+        hpBarSwitch(false)
     } else if(killed !== 0){
         bossTimerElement.style.visibility = "hidden"
         clearInterval(downloadTimer);
-        bossHpBarElement.style.display="none"
-        mobHpBarElement.style.visibility="visible"
+        hpBarSwitch(false)
     }
     bossTimerElement.textContent = Math.trunc(timeleft)
     timeleft -= 0.1;
