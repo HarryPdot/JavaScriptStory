@@ -1,4 +1,5 @@
 let mobHpProgressBarElement = document.querySelector("#current-mob-hp-progress")
+let bossHpProgressBarElement = document.querySelector("#current-boss-hp-progress")
 
 function isCritical(rndInteger) {
     return rndInteger <= playerStats.critChance
@@ -11,7 +12,7 @@ function getDamage(isCrit) {
 
 function mobHpProgressBar() {
     mobHpProgressBarElement.style.width = (Number(mobHp/currentMobDetails.meta.maxHP) * 100) + "%"
-    // bossHpProgressBarElement.style.width = (Number(mobHp/currentMobDetails.meta.maxHP) * 100) + "%"
+    bossHpProgressBarElement.style.width = (Number(mobHp/currentMobDetails.meta.maxHP) * 100) + "%"
 }
 
 function getDamageLine(damageDealt, isCrit) {

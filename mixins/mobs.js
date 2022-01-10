@@ -3,6 +3,8 @@ const mobNameElement = document.querySelector('#mob-name');
 const killedElement = document.querySelector('#killed');
 // const requiredKillsElement = document.querySelector('#required-kills');
 const bossTimerElement = document.querySelector('#boss-timer')
+const bossHpBarElement = document.querySelector('#boss-details')
+const mobHpBarElement = document.querySelector('#progress-mob-hpbar')
 
 
 // @todo: Add stages
@@ -56,7 +58,6 @@ function updateKills(action) {
     } else if (action === 'reset') {
         killed = 0;
         killedElement.textContent = "BOSS";
-        // bossHpBarElement1.style.display="block"
     }
 }
 
@@ -98,14 +99,20 @@ function resetMob() {
 function bossTimer() {
     var timeleft = 60.99;
     bossTimerElement.style.visibility = "visible"
+    bossHpBarElement.style.display="block"
+    mobHpBarElement.style.visibility="hidden"
     var downloadTimer = setInterval(function(){
     if(timeleft <= 1){
         clearInterval(downloadTimer);
         bossTimerElement.style.visibility = "hidden"
         resetMob()
+        bossHpBarElement.style.display="none"
+        mobHpBarElement.style.visibility="visible"
     } else if(killed !== 0){
         bossTimerElement.style.visibility = "hidden"
         clearInterval(downloadTimer);
+        bossHpBarElement.style.display="none"
+        mobHpBarElement.style.visibility="visible"
     }
     bossTimerElement.textContent = Math.trunc(timeleft)
     timeleft -= 0.1;
