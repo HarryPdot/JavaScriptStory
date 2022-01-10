@@ -88,6 +88,8 @@ body {
 }
 
 #toggle-mute {
+    position: absolute;
+    right: 0;
     width: 120px;
     padding: 8px 12px;
     margin: 8px;
@@ -126,7 +128,7 @@ body {
 
 #boss-timer {
     color: red;
-    display: none;
+    /* visibility: hidden; */
 }
 
 .grid {
@@ -177,19 +179,33 @@ body {
 }
 
 #exp-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
     background-color: rgb(100, 100, 100);
     border-radius: 4px;
-    width: 30%;
-    height: 65%;
+    width: 15vh;
+    height: 15vh;
+    border-end-end-radius: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    z-index: 0;
+    /* overflow: hidden; */
 }
 
 #current-exp {
-    width: 0%;
-    height: 100%;
+    width: 15vh;
+    height: 15vh;
+    border-end-end-radius: 100%;
     background-color: rgb(213, 216, 38);
+    transform: translateY(0%) rotate(80deg); /* W3C */  
+    transform-origin: top left;
+    z-index: 1;
 }
 
-#progress-mob-hpbar {
+#progress-mob-hpbar, 
+#progress-boss-hpbar {
     background-color: rgb(100, 100, 100);
     border-radius: 4px;
     width: 30%;
@@ -199,11 +215,21 @@ body {
     border: 1px silver solid;
 }
 
-#current-mob-hp-progress {
+#current-mob-hp-progress, 
+#current-boss-hp-progress {
     width: 100%;
     height: 100%;
     background-color: rgb(190, 0, 0);
 }
+
+/* #progress-boss-hpbar {
+    position: absolute;
+    left: 25%;
+    bottom: 20%;
+    width: 50%;
+    height: 16px;
+    visibility: hidden;
+} */
 
 /* Breakpoints
   'mobile':  360px,

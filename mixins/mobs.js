@@ -4,6 +4,7 @@ const killedElement = document.querySelector('#killed');
 // const requiredKillsElement = document.querySelector('#required-kills');
 const bossTimerElement = document.querySelector('#boss-timer')
 
+
 // @todo: Add stages
 // let currentStage = 1;
 let mobHp;
@@ -51,6 +52,7 @@ function updateKills(action) {
     } else if (action === 'reset') {
         killed = 0;
         killedElement.textContent = "BOSS";
+        // bossHpBarElement1.style.display="block"
     }
 }
 
@@ -90,14 +92,14 @@ function resetMob() {
 
 function bossTimer() {
     var timeleft = 60.99;
-    bossTimerElement.style.display = "block"
+    bossTimerElement.style.visibility = "visible"
     var downloadTimer = setInterval(function(){
     if(timeleft <= 1){
         clearInterval(downloadTimer);
-        bossTimerElement.style.display = "none"
+        bossTimerElement.style.visibility = "hidden"
         resetMob()
     } else if(killed !== 0){
-        bossTimerElement.style.display = "none"
+        bossTimerElement.style.visibility = "hidden"
         clearInterval(downloadTimer);
     }
     bossTimerElement.textContent = Math.trunc(timeleft)

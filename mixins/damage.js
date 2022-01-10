@@ -1,5 +1,6 @@
 let mobHpProgressBarElement = document.querySelector("#current-mob-hp-progress")
-
+// let bossHpProgressBarElement = document.querySelector("#current-boss-hp-progress")
+// let bossHpBarElement1 = document.querySelector("#progress-boss-hpbar")
 function playerRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
@@ -15,6 +16,7 @@ function getDamage(isCrit) {
 
 function mobHpProgressBar() {
     mobHpProgressBarElement.style.width = (Number(mobHp/currentMobDetails.meta.maxHP) * 100) + "%"
+    // bossHpProgressBarElement.style.width = (Number(mobHp/currentMobDetails.meta.maxHP) * 100) + "%"
 }
 
 function getDamageLine(damageDealt, isCrit) {

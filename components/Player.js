@@ -52,7 +52,7 @@ currentLevelElement.textContent = playerStats.lvl;
 updateExpElement();
 
 function updateExpElement() {
-    currentExpElement.style.width = Number((playerStats.exp / playerStats.expToLvl) * 100) + "%";
+    currentExpElement.style.transform = `rotate(${90 - ((playerStats.exp/playerStats.expToLvl) * 90)}deg)`;
 }
 
 function handleLevel() {
