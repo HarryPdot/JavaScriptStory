@@ -10,6 +10,7 @@ const bossTimerElement = document.querySelector('#boss-timer')
 let mobHp;
 let currentMobDetails;
 let killed = 1;
+let isBoss = false;
 
 // Last mob in array is boss
 const stage1 = {
@@ -18,7 +19,6 @@ const stage1 = {
         'Blue Snail', 
         'Red Snail', 
         'Spore',
-        'Mano'
     ],
     requiredKills: 5,
 }
@@ -33,7 +33,11 @@ getNewMob();
 
 // Get mob data using mob NAME
 function getMobDetails(mobName) {
-    return mobsData.filter((mob) => mobName === mob.name)[0]
+    if(isBoss) {
+        isBoss = false;
+        return mapsData['lith-harbor'].mobs.bosses[0]
+    }
+    else return mapsData['lith-harbor'].mobs.normal.filter((mob) => mobName === mob.name)[0]
 }
 
 // Returns img element with gif using mob ID
@@ -66,18 +70,19 @@ function getNewMob(currentMob) {
 
     // Spawn boss
     if(killed > stage1.requiredKills) {
-        upcomingMobs = [stage1.mobs[stage1.mobs.length - 1]];
+        upcomingMobs = [mapsData['lith-harbor'].mobs.bosses[0].name];
         updateKills('reset');
         //add bossTimer
         bossTimer()
+        isBoss = true;
     }
 
     // Choose a random mob EXCLUDING boss
-    let randMobIndex = getRndInteger(0, upcomingMobs.length - 1);
+    let randMobIndex = getRndInteger(0, upcomingMobs.length);
 
     // Get details
     currentMobDetails = getMobDetails(upcomingMobs[randMobIndex]);
-    
+
     // Update HTML
     mobHp = currentMobDetails.meta.maxHP;
     mobHpElement.textContent = mobHp;

@@ -30,5 +30,5 @@ function startGame() {
     startMenu.remove()
 
     playSound("assets/sounds/click.wav")
-    setAudio('play', document.querySelector('#bgm'), Map.getBGM(LITH_HARBOR))
+    setAudio('play', document.querySelector('#bgm'), Map.getBGM(mapsData['lith-harbor'].id))
 };
