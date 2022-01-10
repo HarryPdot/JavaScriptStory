@@ -261,15 +261,15 @@ body {
 }
 
 #boss-image {
-    width: 47.5px;
-    height: 47.5px;
+    width: 46px;
+    height: 46px;
     border: 2px solid red;
 }
 
 #boss-details {
     position: absolute;
     left: 25%;
-    bottom: 20%;
+    bottom: 20vh;
     width: 50%;
     height: 16px;
     display: none;

@@ -13,33 +13,28 @@ let mobHp;
 let currentMobDetails;
 let killed = 1;
 let isBoss = false;
-
-// Last mob in array is boss
-const stage1 = {
-    mobs: [
-        'Snail', 
-        'Blue Snail', 
-        'Red Snail', 
-        'Spore',
-    ],
-    requiredKills: 5,
-}
+let requiredKills = 5
 
 // Render initial states
-// killedElement.textContent = killed;
-// requiredKillsElement.textContent = stage1.requiredKills;
-killCounter(killed, stage1.requiredKills);
+killCounter(killed, requiredKills);
 
 // Initial load
-getNewMob();
+
+
 
 // Get mob data using mob NAME
 function getMobDetails(mobName) {
+    console.log("works")
+    console.log('currentMapDetails', currentMapDetails.mobs.normal)
     if(isBoss) {
+        console.log("boss yes")
         isBoss = false;
-        return mapsData['lith-harbor'].mobs.bosses[0]
+        return currentMapDetails.mobs.bosses[0]
     }
-    else return mapsData['lith-harbor'].mobs.normal.filter((mob) => mobName === mob.name)[0]
+    else {
+        console.log("yes")
+        return currentMapDetails.mobs.normal.filter((mob) => mobName.name === mob.name)[0]
+    }
 }
 
 // Returns img element with gif using mob ID
@@ -54,7 +49,7 @@ function killCounter(killed, requiredKills) {
 function updateKills(action) {
     if(action === 'add') {
         killed++;
-        killCounter(killed, stage1.requiredKills);
+        killCounter(killed, requiredKills);
     } else if (action === 'reset') {
         killed = 0;
         killedElement.textContent = "BOSS";
@@ -62,29 +57,25 @@ function updateKills(action) {
 }
 
 function getNewMob(currentMob) {
-    let upcomingMobs = stage1.mobs
+    console.log("currentMob", currentMob)
+    console.log('currentMapDetails', currentMapDetails)
+    let mobsExcCurrent = currentMapDetails.mobs.normal
+    console.log('mobsExcCurrent', mobsExcCurrent)
 
-    // Prevent current mob from being chosen next
     if(currentMob !== undefined) {
-        upcomingMobs = stage1.mobs.filter((mobName) => currentMob.name !== mobName)
+        mobsExcCurrent = currentMapDetails.mobs.normal.filter((mobName) => currentMob.name !== mobName.name)
     }
+    console.log('mobsExcCurrent', mobsExcCurrent)
 
-    // Spawn boss
-    if(killed > stage1.requiredKills) {
-        upcomingMobs = [mapsData['lith-harbor'].mobs.bosses[0].name];
-        updateKills('reset');
-        //add bossTimer
-        bossTimer()
-        isBoss = true;
-    }
+    spawnBoss()
 
-    // Choose a random mob EXCLUDING boss
-    let randMobIndex = getRndInteger(0, upcomingMobs.length);
+    let randMobIndex = getRndInteger(0, mobsExcCurrent.length);
+    console.log('randMobIndex', randMobIndex)
+    console.log('random mob', mobsExcCurrent[randMobIndex].name)
+    currentMobDetails = getMobDetails(mobsExcCurrent[randMobIndex])
+    console.log(currentMobDetails)
 
-    // Get details
-    currentMobDetails = getMobDetails(upcomingMobs[randMobIndex]);
-
-    // Update HTML
+    // update HTML 
     mobHp = currentMobDetails.meta.maxHP;
     mobHpElement.textContent = mobHp;
     mobNameElement.textContent = currentMobDetails.name;
@@ -94,6 +85,17 @@ function getNewMob(currentMob) {
 function resetMob() {
     updateKills('add');
     getNewMob(currentMobDetails); 
+}
+
+function spawnBoss() {
+    if(killed > requiredKills) {
+        let randBossIndex = getRndInteger(0, currentMapDetails.mobs.bosses.length)
+        console.log('randomBoss', randBossIndex)
+        upcomingMobs = currentMapDetails.mobs.bosses[randBossIndex];
+        updateKills('reset');
+        bossTimer()
+        isBoss = true;
+    } else return
 }
 
 function hpBarSwitch(boolean) {

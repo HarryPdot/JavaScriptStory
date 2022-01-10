@@ -92,212 +92,396 @@ const mobsData = {
   'henesys': {
     'normal': [
       {
-          "id": 100000,
+          "id": 100004,
           "meta": {
-            "maxHP": 15,
-            "exp": 3,
+            "maxHP": 65,
+            "exp": 10,
           },
-          "name": "Snail",
+          "name": "Orange Mushroom",
       },
       {
-        "id": 100001,
+        "id": 1110100,
         "meta": {
-          "maxHP": 20,
-          "exp": 4,
+          "maxHP": 125,
+          "exp": 17,
         },
-        "name": "Blue Snail",
+        "name": "Green Mushroom",
       },
       {
-        "id": 100002,
+        "id": 2110200,
         "meta": {
-          "maxHP": 35,
-          "exp": 6,
+          "maxHP": 175,
+          "exp": 21,
         },
-        "name": "Red Snail",
+        "name": "Horny Mushroom",
       },
       {
-        "id": 100003,
+        "id": 2220100,
         "meta": {
-          "maxHP": 20,
-          "exp": 4,
+          "maxHP": 225,
+          "exp": 24,
         },
-        "name": "Spore",
+        "name": "Blue Mushroom",
+      },
+      {
+        "id": 2220110,
+        "meta": {
+          "maxHP": 250,
+          "exp": 26,
+        },
+        "name": "Crying Blue Mushroom",
       },
     ],
     'bosses': [
       {
-        "id": 2220000,
+        "id": 6130101,
         "meta": {
-          "maxHP": 1250,
-          "exp": 170,
+          "maxHP": 17500,
+          "exp": 1650,
         },
-        "name": "Mano",
+        "name": "Mushmom",
       },
+      {
+        "id": 8220007,
+        "meta": {
+          "maxHP": 21750,
+          "exp": 1950,
+        },
+        "name": "Blue Mushmom",
+      }
     ]
   },
   'ellinia': {
     'normal': [
       {
-          "id": 100000,
+          "id": 100006,
           "meta": {
-            "maxHP": 15,
-            "exp": 3,
+            "maxHP": 80,
+            "exp": 12,
           },
-          "name": "Snail",
+          "name": "Slime",
       },
       {
-        "id": 100001,
+        "id": 1210103,
         "meta": {
-          "maxHP": 20,
-          "exp": 4,
+          "maxHP": 125,
+          "exp": 17,
         },
-        "name": "Blue Snail",
+        "name": "Bubbling",
       },
       {
-        "id": 100002,
+        "id": 2230100,
         "meta": {
-          "maxHP": 35,
-          "exp": 6,
+          "maxHP": 580,
+          "exp": 47,
         },
-        "name": "Red Snail",
+        "name": "Evil Eye",
       },
       {
-        "id": 100003,
+        "id": 2230113,
         "meta": {
-          "maxHP": 20,
-          "exp": 4,
+          "maxHP": 790,
+          "exp": 56,
         },
-        "name": "Spore",
+        "name": "Surgeon Eye",
+      },
+      {
+        "id": 3230100,
+        "meta": {
+          "maxHP": 650,
+          "exp": 50,
+        },
+        "name": "Curse Eye",
+      },
+      {
+        "id": 4230100,
+        "meta": {
+          "maxHP": 720,
+          "exp": 53,
+        },
+        "name": "Cold Eye",
+      },
+      {
+        "id": 3000001,
+        "meta": {
+          "maxHP": 200,
+          "exp": 27,
+        },
+        "name": "Fairy",
+      },
+      {
+        "id": 3000007,
+        "meta": {
+          "maxHP": 250,
+          "exp": 31,
+        },
+        "name": "Royal Fairy",
       },
     ],
     'bosses': [
       {
-        "id": 2220000,
+        "id": 9410178,
         "meta": {
-          "maxHP": 1250,
-          "exp": 170,
+          "maxHP": 15750,
+          "exp": 1225,
         },
-        "name": "Mano",
+        "name": "Grendel the Really Old",
       },
     ]
   },
   'kerning-city': {
     'normal': [
       {
-          "id": 100000,
+          "id": 9300904,
           "meta": {
-            "maxHP": 15,
-            "exp": 3,
+            "maxHP": 4400,
+            "exp": 127,
           },
-          "name": "Snail",
+          "name": "Stirge",
       },
       {
-        "id": 100001,
+        "id": 1120100,
         "meta": {
-          "maxHP": 20,
-          "exp": 4,
+          "maxHP": 125,
+          "exp": 17,
         },
-        "name": "Blue Snail",
+        "name": "Octopus",
       },
       {
-        "id": 100002,
+        "id": 3230101,
         "meta": {
-          "maxHP": 35,
-          "exp": 6,
+          "maxHP": 4600,
+          "exp": 131,
         },
-        "name": "Red Snail",
+        "name": "Jr. Wraith",
       },
       {
-        "id": 100003,
+        "id": 4230102,
         "meta": {
-          "maxHP": 20,
-          "exp": 4,
+          "maxHP": 4800,
+          "exp": 134,
         },
-        "name": "Spore",
+        "name": "Wraith",
       },
+      {
+        "id": 5090000,
+        "meta": {
+          "maxHP": 4800,
+          "exp": 134,
+        },
+        "name": "Shade",
+      },
+      {
+        "id": 2130103,
+        "meta": {
+          "maxHP": 4800,
+          "exp": 134,
+        },
+        "name": "Jr. Necki",
+      },
+      {
+        "id": 3110100,
+        "meta": {
+          "maxHP": 5040,
+          "exp": 139,
+        },
+        "name": "Ligator",
+      },
+      {
+        "id": 5130103,
+        "meta": {
+          "maxHP": 5280,
+          "exp": 143,
+        },
+        "name": "Croco",
+      },
+      {
+        "id": 2230114,
+        "meta": {
+          "maxHP": 5760,
+          "exp": 151,
+        },
+        "name": "Muddy Swamp Monster",
+      }
     ],
     'bosses': [
       {
-        "id": 2220000,
+        "id": 9500311,
         "meta": {
-          "maxHP": 1250,
-          "exp": 170,
+          "maxHP": 31000,
+          "exp": 810,
         },
-        "name": "Mano",
+        "name": "Dyle",
       },
     ]
   },
   'perion': {
     'normal': [
       {
-          "id": 100000,
+          "id": 3230300,
           "meta": {
-            "maxHP": 15,
-            "exp": 3,
+            "maxHP": 250,
+            "exp": 26,
           },
-          "name": "Snail",
+          "name": "Jr. Boogie",
       },
       {
-        "id": 100001,
-        "meta": {
-          "maxHP": 20,
-          "exp": 4,
-        },
-        "name": "Blue Snail",
-      },
-      {
-        "id": 100002,
+        "id": 100005,
         "meta": {
           "maxHP": 35,
           "exp": 6,
         },
-        "name": "Red Snail",
+        "name": "Stump",
       },
       {
-        "id": 100003,
+        "id": 1110101,
         "meta": {
-          "maxHP": 20,
-          "exp": 4,
+          "maxHP": 375,
+          "exp": 35,
         },
-        "name": "Spore",
+        "name": "Dark Stump",
+      },
+      {
+        "id": 1130100,
+        "meta": {
+          "maxHP": 405,
+          "exp": 44,
+        },
+        "name": "Axe Stump",
+      },
+      {
+        "id": 1140100,
+        "meta": {
+          "maxHP": 465,
+          "exp": 48,
+        },
+        "name": "Ghost Stump",
+      },
+      {
+        "id": 1140130,
+        "meta": {
+          "maxHP": 495,
+          "exp": 50,
+        },
+        "name": "Smirking Ghost Stump",
+      },
+      {
+        "id": 1130100,
+        "meta": {
+          "maxHP": 405,
+          "exp": 44,
+        },
+        "name": "Axe Stump",
+      },
+      {
+        "id": 2130100,
+        "meta": {
+          "maxHP": 435,
+          "exp": 46,
+        },
+        "name": "Dark Axe Stump",
+      },
+      {
+        "id": 2230102,
+        "meta": {
+          "maxHP": 8000,
+          "exp": 187,
+        },
+        "name": "Wild Boar",
+      },
+      {
+        "id": 2230112,
+        "meta": {
+          "maxHP": 8000,
+          "exp": 187,
+        },
+        "name": "Terrified Wild Boar",
+      },
+      {
+        "id": 4230103,
+        "meta": {
+          "maxHP": 8600,
+          "exp": 197,
+        },
+        "name": "Iron Hog",
+      },
+      {
+        "id": 4230400,
+        "meta": {
+          "maxHP": 9200,
+          "exp": 206,
+        },
+        "name": "Iron Boar",
+      },
+      {
+        "id": 3210100,
+        "meta": {
+          "maxHP": 9800,
+          "exp": 215,
+        },
+        "name": "Fire Boar",
       },
     ],
     'bosses': [
       {
-        "id": 2220000,
+        "id": 3220000,
         "meta": {
-          "maxHP": 1250,
-          "exp": 170,
+          "maxHP": 7500,
+          "exp": 880,
         },
-        "name": "Mano",
+        "name": "Stumpy",
       },
     ]
   },
   'sleepywood': {
     'normal': [
       {
-          "id": 100000,
+          "id": 4130100,
           "meta": {
-            "maxHP": 15,
-            "exp": 3,
+            "maxHP": 16000,
+            "exp": 302,
           },
-          "name": "Snail",
+          "name": "Copper Drake",
       },
       {
-        "id": 100001,
+        "id": 5130100,
         "meta": {
-          "maxHP": 20,
-          "exp": 4,
+          "maxHP": 17000,
+          "exp": 316,
         },
-        "name": "Blue Snail",
+        "name": "Drake",
       },
       {
-        "id": 100002,
+        "id": 6130100,
         "meta": {
-          "maxHP": 35,
-          "exp": 6,
+          "maxHP": 18000,
+          "exp": 329,
         },
-        "name": "Red Snail",
+        "name": "Red Drake",
+      },
+      {
+        "id": 6230600,
+        "meta": {
+          "maxHP": 18000,
+          "exp": 329,
+        },
+        "name": "Ice Drake",
+      },
+      {
+        "id": 7130101,
+        "meta": {
+          "maxHP": 20000,
+          "exp": 355,
+        },
+        "name": "Taurospear",
+      },
+      {
+        "id": 6230601,
+        "meta": {
+          "maxHP": 19000,
+          "exp": 342,
+        },
+        "name": "Dark Drake",
       },
       {
         "id": 100003,
@@ -305,18 +489,35 @@ const mobsData = {
           "maxHP": 20,
           "exp": 4,
         },
-        "name": "Spore",
+        "name": "Wild Kargo",
+      },
+      {
+        "id": 7130100,
+        "meta": {
+          "maxHP": 20000,
+          "exp": 355,
+        },
+        "name": "Tauromacis",
       },
     ],
     'bosses': [
       {
-        "id": 2220000,
+        "id": 9500179,
         "meta": {
-          "maxHP": 1250,
-          "exp": 170,
+          "maxHP": 5810,
+          "exp": 532,
         },
-        "name": "Mano",
+        "name": "Snack Bar",
+      },
+      {
+        "id": 9300260,
+        "meta": {
+          "maxHP": 25000,
+          "exp": 610,
+        },
+        "name": "Snack Bar",
       },
     ]
   },
 }
+
