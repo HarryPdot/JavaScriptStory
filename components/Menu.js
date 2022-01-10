@@ -1,13 +1,13 @@
 template.innerHTML = `
     <style>
         @keyframes slideMenuLeft {
-            from { margin-right: -84px; }
+            from { margin-right: -112px; }
             to { margin-right: 8px; }   
         }
         
         @keyframes slideMenuRight {
             from { margin-right: 8px; }
-            to { margin-right: -84px; }   
+            to { margin-right: -112px; }   
         }
         
         .slideMenuLeft {
@@ -59,7 +59,7 @@ template.innerHTML = `
         }
         
         #menu-container li button {
-            width: 80px;
+            width: 108px;
         }
     </style>
 
@@ -67,10 +67,12 @@ template.innerHTML = `
         <div id="menu-container">
             <button id="toggle-menu-button" onClick="toggleMenu()"><</button>
             <ul id="menu-list">
-                <li><button class="menu-item">Quest</button></li>
-                <li><button class="menu-item">Store</button></li>
-                <li><button class="menu-item">Skills</button></li>
-                <li><button class="menu-item">Stats</button></li>
+                <li><button class="menu-item" onClick="gotoMap('lith-harbor')">Lith Harbor</button></li>
+                <li><button class="menu-item" onClick="gotoMap('henesys')">Henesys</button></li>
+                <li><button class="menu-item" onClick="gotoMap('ellinia')">Ellinia</button></li>
+                <li><button class="menu-item" onClick="gotoMap('kerning-city')">Kerning City</button></li>
+                <li><button class="menu-item" onClick="gotoMap('perion')">Perion</button></li>
+                <li><button class="menu-item" onClick="gotoMap('sleepywood')">Sleepywood</button></li>
             </ul>
         </div>
     </div>
@@ -101,7 +103,7 @@ function toggleMenu() {
         menuComponent.querySelector('#toggle-menu-button').textContent = '<'
         menuComponent.querySelector('#menu-list').classList.remove('slideMenuLeft');
         menuComponent.querySelector('#menu-list').classList.add('slideMenuRight');
-        menuComponent.querySelector('#menu-list').style.marginRight = '-84px';
+        menuComponent.querySelector('#menu-list').style.marginRight = '-112px';
     }
 
     menuIsOpen = !menuIsOpen;

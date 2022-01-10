@@ -24,11 +24,8 @@ const loadingState = new Proxy({ loading: true }, {
 })
 
 function startGame() {
-    loadingState.loading = false
-
-    const startMenu = document.getElementById("start-screen")
-    startMenu.remove()
-
     playSound("assets/sounds/click.wav")
-    setAudio('play', document.querySelector('#bgm'), Map.getBGM(mapsData['lith-harbor'].id))
+    loadingState.loading = false
+    document.getElementById("start-screen").remove()
+    gotoMap('lith-harbor');
 };

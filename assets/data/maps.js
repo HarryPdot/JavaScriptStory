@@ -24,9 +24,9 @@ const mapsData = {
         name: 'Perion',
         mobs: mobsData['perion']
     },
-    'sleepy-wood': {
+    'sleepywood': {
         id: 105000000,
         name: 'Sleepywood',
-        mobs: mobsData['sleepy-wood']
+        mobs: mobsData['sleepywood']
     },
 }
