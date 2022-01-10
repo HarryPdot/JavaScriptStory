@@ -183,28 +183,51 @@ body {
     color: rgb(213, 216, 38);
 }
 
-#exp-bar {
+#player-top-left {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: rgb(100, 100, 100);
+    background-color: black;
     border-radius: 4px;
-    width: 15vh;
-    height: 15vh;
+    width: 20vh;
+    height: 20vh;
     border-end-end-radius: 100%;
     display: flex;
     justify-content: flex-start;
     align-content: flex-start;
-    z-index: 0;
-    /* overflow: hidden; */
+    z-index: 100;
+}
+
+.top-left-info {
+    color: white;
+    z-index: 10;
+}
+
+#exp-bar {
+    left: 0;
+    top: 0;
+    background-color: black;
+    border-radius: 4px;
+    width: 20vh;
+    height: 20vh;
+    border-end-end-radius: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    z-index: 3;
 }
 
 #current-exp {
-    width: 15vh;
-    height: 15vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 21vh;
+    height: 21vh;
+    border-right: 1vh solid rgb(213, 216, 38);
+    border-bottom: 1vh solid rgb(213, 216, 38);
     border-end-end-radius: 100%;
-    background-color: rgb(213, 216, 38);
-    transform: translateY(0%) rotate(80deg); /* W3C */  
+    background-color: none;
+    transform: rotate(80deg); /* W3C */  
     transform-origin: top left;
     z-index: 1;
 }
