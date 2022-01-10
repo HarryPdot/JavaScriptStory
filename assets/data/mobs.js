@@ -42,46 +42,281 @@
   }
 */
 
-const mobsData = [
-    {
-        "id": 100000,
+const mobsData = {
+  'lith-harbor': {
+    'normal': [
+      {
+          "id": 100000,
+          "meta": {
+            "maxHP": 15,
+            "exp": 3,
+          },
+          "name": "Snail",
+      },
+      {
+        "id": 100001,
         "meta": {
-          "maxHP": 15,
-          "exp": 3,
+          "maxHP": 20,
+          "exp": 4,
         },
-        "name": "Snail",
-    },
-    {
-      "id": 100001,
-      "meta": {
-        "maxHP": 20,
-        "exp": 4,
+        "name": "Blue Snail",
       },
-      "name": "Blue Snail",
-    },
-    {
-      "id": 100002,
-      "meta": {
-        "maxHP": 35,
-        "exp": 6,
+      {
+        "id": 100002,
+        "meta": {
+          "maxHP": 35,
+          "exp": 6,
+        },
+        "name": "Red Snail",
       },
-      "name": "Red Snail",
-    },
-    {
-      "id": 100003,
-      "linksTo": 120100,
-      "meta": {
-        "maxHP": 20,
-        "exp": 4,
+      {
+        "id": 100003,
+        "meta": {
+          "maxHP": 20,
+          "exp": 4,
+        },
+        "name": "Spore",
       },
-      "name": "Spore",
-    },
-    {
-      "id": 2220000,
-      "meta": {
-        "maxHP": 1250,
-        "exp": 170,
+    ],
+    'bosses': [
+      {
+        "id": 2220000,
+        "meta": {
+          "maxHP": 1250,
+          "exp": 170,
+        },
+        "name": "Mano",
       },
-      "name": "Mano",
-    }
-]
+    ]
+  },
+  'henesys': {
+    'normal': [
+      {
+          "id": 100000,
+          "meta": {
+            "maxHP": 15,
+            "exp": 3,
+          },
+          "name": "Snail",
+      },
+      {
+        "id": 100001,
+        "meta": {
+          "maxHP": 20,
+          "exp": 4,
+        },
+        "name": "Blue Snail",
+      },
+      {
+        "id": 100002,
+        "meta": {
+          "maxHP": 35,
+          "exp": 6,
+        },
+        "name": "Red Snail",
+      },
+      {
+        "id": 100003,
+        "meta": {
+          "maxHP": 20,
+          "exp": 4,
+        },
+        "name": "Spore",
+      },
+    ],
+    'bosses': [
+      {
+        "id": 2220000,
+        "meta": {
+          "maxHP": 1250,
+          "exp": 170,
+        },
+        "name": "Mano",
+      },
+    ]
+  },
+  'ellinia': {
+    'normal': [
+      {
+          "id": 100000,
+          "meta": {
+            "maxHP": 15,
+            "exp": 3,
+          },
+          "name": "Snail",
+      },
+      {
+        "id": 100001,
+        "meta": {
+          "maxHP": 20,
+          "exp": 4,
+        },
+        "name": "Blue Snail",
+      },
+      {
+        "id": 100002,
+        "meta": {
+          "maxHP": 35,
+          "exp": 6,
+        },
+        "name": "Red Snail",
+      },
+      {
+        "id": 100003,
+        "meta": {
+          "maxHP": 20,
+          "exp": 4,
+        },
+        "name": "Spore",
+      },
+    ],
+    'bosses': [
+      {
+        "id": 2220000,
+        "meta": {
+          "maxHP": 1250,
+          "exp": 170,
+        },
+        "name": "Mano",
+      },
+    ]
+  },
+  'kerning-city': {
+    'normal': [
+      {
+          "id": 100000,
+          "meta": {
+            "maxHP": 15,
+            "exp": 3,
+          },
+          "name": "Snail",
+      },
+      {
+        "id": 100001,
+        "meta": {
+          "maxHP": 20,
+          "exp": 4,
+        },
+        "name": "Blue Snail",
+      },
+      {
+        "id": 100002,
+        "meta": {
+          "maxHP": 35,
+          "exp": 6,
+        },
+        "name": "Red Snail",
+      },
+      {
+        "id": 100003,
+        "meta": {
+          "maxHP": 20,
+          "exp": 4,
+        },
+        "name": "Spore",
+      },
+    ],
+    'bosses': [
+      {
+        "id": 2220000,
+        "meta": {
+          "maxHP": 1250,
+          "exp": 170,
+        },
+        "name": "Mano",
+      },
+    ]
+  },
+  'perion': {
+    'normal': [
+      {
+          "id": 100000,
+          "meta": {
+            "maxHP": 15,
+            "exp": 3,
+          },
+          "name": "Snail",
+      },
+      {
+        "id": 100001,
+        "meta": {
+          "maxHP": 20,
+          "exp": 4,
+        },
+        "name": "Blue Snail",
+      },
+      {
+        "id": 100002,
+        "meta": {
+          "maxHP": 35,
+          "exp": 6,
+        },
+        "name": "Red Snail",
+      },
+      {
+        "id": 100003,
+        "meta": {
+          "maxHP": 20,
+          "exp": 4,
+        },
+        "name": "Spore",
+      },
+    ],
+    'bosses': [
+      {
+        "id": 2220000,
+        "meta": {
+          "maxHP": 1250,
+          "exp": 170,
+        },
+        "name": "Mano",
+      },
+    ]
+  },
+  'sleepy-wood': {
+    'normal': [
+      {
+          "id": 100000,
+          "meta": {
+            "maxHP": 15,
+            "exp": 3,
+          },
+          "name": "Snail",
+      },
+      {
+        "id": 100001,
+        "meta": {
+          "maxHP": 20,
+          "exp": 4,
+        },
+        "name": "Blue Snail",
+      },
+      {
+        "id": 100002,
+        "meta": {
+          "maxHP": 35,
+          "exp": 6,
+        },
+        "name": "Red Snail",
+      },
+      {
+        "id": 100003,
+        "meta": {
+          "maxHP": 20,
+          "exp": 4,
+        },
+        "name": "Spore",
+      },
+    ],
+    'bosses': [
+      {
+        "id": 2220000,
+        "meta": {
+          "maxHP": 1250,
+          "exp": 170,
+        },
+        "name": "Mano",
+      },
+    ]
+  },
+}
