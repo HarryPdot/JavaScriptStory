@@ -273,7 +273,7 @@ const mobsData = {
       },
     ]
   },
-  'sleepy-wood': {
+  'sleepywood': {
     'normal': [
       {
           "id": 100000,
