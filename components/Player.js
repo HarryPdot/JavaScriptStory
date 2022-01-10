@@ -33,7 +33,7 @@ class Player extends HTMLElement {
 // Define the new element
 window.customElements.define('ms-player', Player)
 
-const currentLevelElement = document.querySelector("#current-lvl")
+const lvlElement = document.querySelector("#lvl")
 const currentExpElement = document.querySelector("#current-exp")
 
 let playerStats = {
@@ -48,7 +48,7 @@ let playerStats = {
 }
 
 // Render initial states
-currentLevelElement.textContent = playerStats.lvl;
+lvlElement.textContent = `Lv. ${playerStats.lvl}`;
 updateExpElement();
 
 function updateExpElement() {
@@ -70,7 +70,7 @@ function handleLevel() {
     }
 
     // Update HTML
-    currentLevelElement.textContent = playerStats.lvl
+    lvlElement.textContent = `Lv. ${playerStats.lvl}`
     updateExpElement();
 }
 
