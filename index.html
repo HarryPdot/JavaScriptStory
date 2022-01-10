@@ -21,12 +21,16 @@
                 <button onClick="startGame()">START</button>
             </div>
         </div>
-        <div id="player-top-left">
-            <div class="top-left-info">
-                <div id="lvl-text">LV. <span id="current-lvl"></span></div>
+
+        <div id="ui-overlay-top-left">
+            <div id="lvl-container">
+                <span id="lvl"></span>
             </div>
-            <div id="current-exp"><div id="exp-bar"></div></div>
+            <div id="exp-bar">
+                <div id="current-exp"></div>
+            </div>
         </div>
+
         <button id="toggle-mute" onClick="muteAll()">Sound ON</button>
         
         <ms-menu></ms-menu>

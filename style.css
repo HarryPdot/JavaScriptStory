@@ -88,6 +88,47 @@ body {
     cursor: url(assets/images/cursor/ms_default.cur), auto;
 }
 
+#ui-overlay-top-left {
+    position: absolute;
+    z-index: 99;
+}
+
+#lvl-container {
+    position: absolute;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-end-end-radius: 100%;
+    width: 100px;
+    height: 100px;
+    z-index: 98;
+}
+
+#lvl {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(255, 204, 0);;
+}
+
+#exp-bar {
+    border-right: 10px solid rgba(0, 0, 0, 0.25);
+    border-bottom: 10px solid rgba(0, 0, 0, 0.25);
+    border-end-end-radius: 100%;
+    height: 116px;
+    width: 116px;
+}
+
+#current-exp {
+    height: 116px;
+    width: 116px;
+    border-right: 10px solid rgb(213, 216, 38);
+    border-bottom: 10px solid rgb(213, 216, 38);
+    border-end-end-radius: 100%;
+    background-color: none;
+    transform-origin: top left;
+    transform: rotate(80deg);
+    transition: transform 330ms ease-in-out;
+}
+
 #toggle-mute {
     position: absolute;
     right: 0;
@@ -177,59 +218,6 @@ body {
     color:white;
     font-size: 28px;
     font-weight: 700;
-}
-
-#lvl-text, #current-lvl {
-    color: rgb(213, 216, 38);
-}
-
-#player-top-left {
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: black;
-    border-radius: 4px;
-    width: 20vh;
-    height: 20vh;
-    border-end-end-radius: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-content: flex-start;
-    z-index: 100;
-}
-
-.top-left-info {
-    color: white;
-    z-index: 10;
-}
-
-#exp-bar {
-    left: 0;
-    top: 0;
-    background-color: black;
-    border-radius: 4px;
-    width: 20vh;
-    height: 20vh;
-    border-end-end-radius: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-content: flex-start;
-    z-index: 3;
-}
-
-#current-exp {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 21vh;
-    height: 21vh;
-    border-right: 1vh solid rgb(213, 216, 38);
-    border-bottom: 1vh solid rgb(213, 216, 38);
-    border-end-end-radius: 100%;
-    background-color: none;
-    transform: rotate(80deg); /* W3C */  
-    transform-origin: top left;
-    z-index: 1;
 }
 
 #progress-mob-hpbar, 
