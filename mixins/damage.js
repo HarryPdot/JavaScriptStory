@@ -1,5 +1,6 @@
-let mobHpProgressBarElement = document.querySelector("#current-mob-hp-progress")
-let bossHpProgressBarElement = document.querySelector("#current-boss-hp-progress")
+const mobHpProgressBarElement = document.querySelector("#current-mob-hp-progress")
+const bossHpProgressBarElement = document.querySelector("#current-boss-hp-progress")
+const uiClickableElement = document.getElementById("ui-clickable");
 
 function isCritical(rndInteger) {
     return rndInteger <= playerStats.critChance
@@ -80,7 +81,3 @@ function attack() {
 
 // Idle attack
 let attackSpeed = 300/playerStats.attackSpeed
-
-// Active attack
-const grid = document.querySelector(".grid");
-grid.addEventListener("click", () => attack());
