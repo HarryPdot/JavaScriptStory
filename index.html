@@ -22,47 +22,68 @@
             </div>
         </div>
 
-        <div id="ui-overlay-top-left">
-            <div id="lvl-container">
-                <span id="lvl"></span>
-            </div>
-            <div id="exp-bar">
-                <div id="current-exp"></div>
-            </div>
-        </div>
+        <!-- [UI LAYER] -->
+        <div id="ui-overlay">
+            <div id="ui-layer" class="ui-grid-3x6">
+                <div id="ui-lvl">
+                    <div id="lvl-container">
+                        <span id="lvl"></span>
+                    </div>
+                    <div id="exp-bar">
+                        <div id="current-exp"></div>
+                    </div>
+                </div>
 
-        <button id="toggle-mute" onClick="muteAll()">Sound ON</button>
-        
-        <ms-menu></ms-menu>
+                <div id="ui-settings">
+                    <button id="toggle-mute" onClick="muteAll()">Sound ON</button>
+                </div>
 
-        <!-- <div class="top-right"><span id="exp-gained"></span></div> -->
+                <!-- Built to self position -->
+                <ms-menu></ms-menu>
 
-        <div id="mob-hp"></div>
-        <div id="mob-name"></div>
-        <div id="kill-counter"><span id="killed"></span></div>
-        <div id="boss-timer"></div>
-        <div class="grid">
-            <div class="player-container">
-                <img src="./assets/images/player/beginner_stand_0.png"/>
-            </div>
-            <div class="mob-container">
-                <div id="damageLine"></div>
-                <div id="progress-mob-hpbar"><div id="current-mob-hp-progress"></div></div>
-                <div id="mob"></div>
-            </div>
-        </div>
+                <div id="ui-clickable" onClick="attack()">
+                </div>
 
-        <div id="boss-details">
-            <div class="boss-grid">
-                <div id="boss-image"></div>
-                <div id="progress-boss-hpbar"><div id="current-boss-hp-progress"></div></div>
+                <div id="ui-bottom">
+                    <div id="boss-details">
+                        <div class="boss-grid">
+                            <div id="boss-image"></div>
+                            <div id="progress-boss-hpbar"><div id="current-boss-hp-progress"></div></div>
+                        </div>
+                    </div>
+
+                    <button onClick="hax()">spam4hax</button>
+                </div>
             </div>
         </div>
-        <div class="footer-tab">
-            <button onClick="hax()">spam4hax</button>
-        </div>
 
-        <img id="platform" />
+        <!-- [ASSET LAYER] -->
+        <div id="asset-layer" class="asset-grid-3x6">
+            <div id="asset-details">
+                <div id="mob-hp"></div>
+                <div id="mob-name"></div>
+                <div id="kill-counter"><span id="killed"></span></div>
+                <div id="boss-timer"></div>
+            </div>
+
+            <div id="asset-player">
+                <div class="player-container">
+                    <img src="./assets/images/player/beginner_stand_0.png"/>
+                </div>
+            </div>
+
+            <div id="asset-mob">
+                <div class="mob-container">
+                    <div id="damageLine"></div>
+                    <div id="progress-mob-hpbar"><div id="current-mob-hp-progress"></div></div>
+                    <div id="mob"></div>
+                </div>
+            </div>
+
+            <div id="asset-platform">
+                <img id="platform" />
+            </div>
+        </div>
     </div>
 
     <audio id="bgm" loop="loop"></audio>

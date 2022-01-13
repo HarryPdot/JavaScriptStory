@@ -6,8 +6,6 @@
     -webkit-user-select: none;
 }
 
-
-
 html,
 body {
     display: flex;
@@ -88,11 +86,64 @@ body {
     cursor: url(assets/images/cursor/ms_default.cur), auto;
 }
 
-#ui-overlay-top-left {
+/*
+ * [UI LAYER]
+ */
+
+ #ui-overlay {
     position: absolute;
     z-index: 99;
+    /* Offset the container's white border */
+    left: -3px;
+    top: -3px;
+    padding: 3px;
+    width: 98vw;
+    height: 98vh;
+    max-width: 1920px;
+    max-height: 1080px;
 }
 
+#ui-lvl {
+    grid-area: lvl;
+    width: 100%;
+    height: 100%;
+}
+
+#ui-settings {
+    grid-area: settings;
+    display: flex;
+    justify-content: right;
+}
+
+#ui-clickable {
+    grid-area: clickable;
+}
+
+#ui-bottom {
+    grid-area: bottom;
+    width: 100%;
+    margin-top: 64px;
+    border-top: 4px solid rgb(221,221,204);
+    background-color: rgb(175, 175, 175);
+}
+
+/* See: https://css-tricks.com/preventing-a-grid-blowout/ */
+.ui-grid-3x6 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: 
+        "lvl . settings"
+        "clickable clickable clickable"
+        "clickable clickable clickable"
+        "clickable clickable clickable"
+        "bottom bottom bottom"
+        "bottom bottom bottom";
+    width: 100%;
+    height: 100%;
+}
+
+/* #ui-lvl */
 #lvl-container {
     position: absolute;
     padding: 8px;
@@ -100,7 +151,6 @@ body {
     border-end-end-radius: 100%;
     width: 100px;
     height: 100px;
-    z-index: 98;
 }
 
 #lvl {
@@ -129,10 +179,10 @@ body {
     transition: transform 330ms ease-in-out;
 }
 
+/* ui-settings */
 #toggle-mute {
-    position: absolute;
-    right: 0;
     width: 120px;
+    height: 32px;
     padding: 8px 12px;
     margin: 8px;
     border: none;
@@ -141,17 +191,90 @@ body {
     color: rgb(0, 255, 42);
 }
 
-.top-right {
+/* ui-bottom */
+#boss-details {
     position: absolute;
-    right: 4px;
-    top: 4px;
-    color: white;
+    left: 25%;
+    bottom: 20vh;
+    width: 50%;
+    height: 16px;
+    display: none;
 }
 
-#exp-gained {
-    color: white;
+.boss-grid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    gap: 2px;
 }
 
+#boss-image {
+    width: 46px;
+    height: 46px;
+    border: 2px solid red;
+}
+
+#progress-mob-hpbar, 
+#progress-boss-hpbar {
+    background-color: rgb(100, 100, 100);
+    border-radius: 4px;
+    width: 30%;
+    height: 16px;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    border: 1px silver solid;
+}
+
+#progress-boss-hpbar {
+    width: 100%;
+    height: 16px;
+}
+
+#current-mob-hp-progress, 
+#current-boss-hp-progress {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(190, 0, 0);
+}
+
+/*
+ * [ASSET LAYER]
+ */
+
+#asset-details {
+    grid-area: details;
+}
+
+#asset-player {
+    grid-area: player;
+}
+
+#asset-mob {
+    grid-area: mob;
+}
+
+#asset-platform {
+    grid-area: platform;
+}
+
+.asset-grid-3x6 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: 
+        ". . ."
+        ". details ."
+        "player mob mob"
+        "player mob mob"
+        "platform platform platform"
+        ". . .";
+    width: 100%;
+    height: 100%;
+}
+
+/* #asset-details */
 #mob-hp {
     display: flex;
     align-items: center;
@@ -170,33 +293,25 @@ body {
 
 #boss-timer {
     color: red;
-    /* visibility: hidden; */
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    height: 50%;
-}
-
+/* #asset-player */
 .player-container {
     display: flex;
-    justify-content: center; 
+    justify-content: left; 
     align-items: flex-end;
-    /* Flip image */
+    height: 100%;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
 
+/* #asset-mob */
 .mob-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-}
-
-#mob {
-    z-index: 9;
+    height: 100%;
 }
 
 #damageLine {
@@ -204,72 +319,12 @@ body {
     margin-bottom: 8px;
 }
 
-.footer-tab {
-    position: absolute;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    height: 5%;
-    bottom: 0;
-    gap: 12px;
-    padding: 0 16px;
-    background: rgba(0, 0, 0, 0.9);
-    color:white;
-    font-size: 28px;
-    font-weight: 700;
-}
-
-#progress-mob-hpbar, 
-#progress-boss-hpbar {
-    background-color: rgb(100, 100, 100);
-    border-radius: 4px;
-    width: 30%;
-    height: 16px;
-    margin-bottom: 2vh;
-    margin-top: 2vh;
-    border: 1px silver solid;
-}
-
-#current-mob-hp-progress, 
-#current-boss-hp-progress {
-    width: 100%;
-    height: 100%;
-    background-color: rgb(190, 0, 0);
+#mob {
+    z-index: 9;
 }
 
 #platform {
     margin-top: -36px;
-}
-
-#progress-boss-hpbar {
-    width: 100%;
-    height: 16px;
-
-}
-
-#boss-image {
-    width: 46px;
-    height: 46px;
-    border: 2px solid red;
-}
-
-#boss-details {
-    position: absolute;
-    left: 25%;
-    bottom: 20vh;
-    width: 50%;
-    height: 16px;
-    display: none;
-}
-
-.boss-grid {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-content: center;
-    gap: 2px;
 }
 
 /* Breakpoints
@@ -299,7 +354,6 @@ body {
 }
 
 @media only screen and (max-height: 500px) {
-
     #boss-details {
         position: absolute;
         left: 25%;
@@ -308,5 +362,4 @@ body {
         height: 16px;
         display: none;
     }
-
 }
