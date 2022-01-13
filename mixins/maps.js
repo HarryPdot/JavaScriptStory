@@ -9,10 +9,5 @@ function loadMap(map) {
 function gotoMap(map) {
     loadMap(map);
     currentMapDetails = mapsData[map]
-    console.log('currentMapDetails', currentMapDetails)
     getNewMob();
-    
 }
-
-
-
