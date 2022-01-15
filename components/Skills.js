@@ -1,9 +1,5 @@
-var render = function (template, node) {
-    if (!node) return;
-    node.innerHTML = (typeof template === 'function' ? template() : template);
-};
-
-template.innerHTML = `
+const skillTemplate = document.createElement('template')
+skillTemplate.innerHTML = `
     <style>
         .skill-grid {
             display:grid;
@@ -14,7 +10,10 @@ template.innerHTML = `
             gap: 10px;
         }
 
-        img {
+        #skill-1,
+        #skill-2,
+        #skill-3,
+        #skill-4, {
             border: 1px solid blue;
             cursor: pointer;
         }
@@ -31,7 +30,7 @@ class Skill extends HTMLElement {
     constructor() {
         super();
         const shadow = this.attachShadow({mode: 'open'});
-        shadow.appendChild(template.content.cloneNode(true));
+        shadow.appendChild(skillTemplate.content.cloneNode(true));
     }
 }
 
@@ -44,4 +43,5 @@ const fourthSkill = document.querySelector("ms-skills").shadowRoot.querySelector
 
 //testing
 firstSkill.src = playerSkills.beginner[0].image
-secondSkill.src = './assets/images/skills/beginner-2.png'
+secondSkill.src = playerSkills.beginner[1].image
+thirdSkill.src = playerSkills.beginner[2].image
