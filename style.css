@@ -30,7 +30,7 @@ body {
     border-radius: 5px;
 }
 
-#start-screen {
+.disable-screen, .disable-screen-black {
     position: absolute;
     z-index: 999;
     width: 100%;
@@ -39,7 +39,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(0, 0, 0, 0.75);
+}
+
+.disable-screen-black {
     background-color: black;
+}
+
+#loading-screen {
+    display: none;
 }
 
 #start-modal {

@@ -35,7 +35,8 @@ function getMobDetails(mobName) {
 
 // Returns img element with gif using mob ID
 function getMobGif(id) {
-    return `<ms-mob id="${id}-gif" sprite="https://maplestory.io/api/GMS/210.1.1/mob/${id}/render/stand?bgColor=" />`
+    const url = getMobAnimationURL(id, currentMapDetails.name);
+    return `<ms-mob id="${id}-gif" sprite="${url}" />`
 }
 
 function killCounter(killed, requiredKills) {

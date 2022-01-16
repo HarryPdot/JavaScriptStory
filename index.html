@@ -10,8 +10,12 @@
 </head>
 <body>
     <div class="container">
-        <div id="start-screen">
+        <div id="loading-screen" class="disable-screen-black">
             <ms-loader></ms-loader>
+        </div>
+
+        <div id="start-screen" class="disable-screen-black">
+            <ms-loader id="start-loader"></ms-loader>
             <div id="start-modal">
                 <h1>JavaScriptStory</h1>
                 <div id="modal-content">
@@ -113,5 +117,6 @@
     <script src="mixins/mobs.js"></script>
     <!-- API -->
     <script src="services/Map.js"></script>
+    <script src="services/Mob.js"></script>
 </body>
 </html>
