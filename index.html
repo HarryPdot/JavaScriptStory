@@ -49,13 +49,6 @@
                 </div>
 
                 <div id="ui-bottom">
-                    <div id="boss-details">
-                        <div class="boss-grid">
-                            <div id="boss-image"></div>
-                            <div id="progress-boss-hpbar"><div id="current-boss-hp-progress"></div></div>
-                        </div>
-                    </div>
-
                     <button onClick="hax()">spam4hax</button>
                     
                     <div id='skill-grid'>
@@ -69,11 +62,30 @@
 
         <!-- [ASSET LAYER] -->
         <div id="asset-layer" class="asset-grid-3x6">
-            <div id="asset-details">
-                <div id="mob-hp"></div>
-                <div id="mob-name"></div>
-                <div id="kill-counter"><span id="killed"></span></div>
-                <div id="boss-timer"></div>
+            <div id="asset-map-details">
+                <div id="map-details-container">
+                    <div id="kill-counter"><span id="killed"></span></div>
+                    <div id="boss-timer">
+                        <span>Time Left:</span>
+                        <div id="time-left"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- @todo: Add gains box -->
+            <div id="asset-gains">
+                <div id="gains-container">
+                    <!-- You gained 15 exp -->
+                </div>
+            </div>
+
+            <div id="asset-mob-details">
+                <div id="mob-details-container">
+                    <div id="progress-mob-hpbar"><div id="current-mob-hp-progress"></div></div>
+                    <div id="mob-description">
+                        <span id="mob-lvl"></span><span id="mob-name"></span>
+                    </div>
+                </div>
             </div>
 
             <div id="asset-player">
@@ -85,7 +97,6 @@
             <div id="asset-mob">
                 <div class="mob-container">
                     <div id="damageLine"></div>
-                    <div id="progress-mob-hpbar"><div id="current-mob-hp-progress"></div></div>
                     <div id="mob"></div>
                 </div>
             </div>
@@ -118,7 +129,6 @@
     <script src="components/Player.js"></script> 
     <script src="components/Mob.js"></script>
     <script src="components/Skill.js"></script>
-
     <!-- Mixins -->
     <script src="mixins/audio.js"></script>
     <script src="mixins/damage.js"></script>
