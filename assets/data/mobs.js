@@ -232,7 +232,7 @@ const mobsData = {
   'kerning-city': {
     'normal': [
       {
-          "id": 9300904,
+          "id": 9001055,
           "meta": {
             "maxHP": 4400,
             "exp": 127,

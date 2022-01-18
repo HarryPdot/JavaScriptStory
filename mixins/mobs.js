@@ -24,22 +24,19 @@ killCounter(killed, requiredKills);
 
 // Get mob data using mob NAME
 function getMobDetails(mobName) {
-    console.log("works")
-    console.log('currentMapDetails', currentMapDetails.mobs.normal)
     if(isBoss) {
-        console.log("boss yes")
         isBoss = false;
         return currentMapDetails.mobs.bosses[0]
     }
     else {
-        console.log("yes")
         return currentMapDetails.mobs.normal.filter((mob) => mobName.name === mob.name)[0]
     }
 }
 
 // Returns img element with gif using mob ID
 function getMobGif(id) {
-    return `<ms-mob id="${id}-gif" sprite="https://maplestory.io/api/GMS/210.1.1/mob/${id}/render/stand?bgColor=" />`
+    const url = getMobAnimationURL(id, currentMapDetails.name);
+    return `<ms-mob id="${id}-gif" sprite="${url}" />`
 }
 
 function killCounter(killed, requiredKills) {
@@ -57,23 +54,16 @@ function updateKills(action) {
 }
 
 function getNewMob(currentMob) {
-    console.log("currentMob", currentMob)
-    console.log('currentMapDetails', currentMapDetails)
     let mobsExcCurrent = currentMapDetails.mobs.normal
-    console.log('mobsExcCurrent', mobsExcCurrent)
 
     if(currentMob !== undefined) {
         mobsExcCurrent = currentMapDetails.mobs.normal.filter((mobName) => currentMob.name !== mobName.name)
     }
-    console.log('mobsExcCurrent', mobsExcCurrent)
 
     spawnBoss()
 
     let randMobIndex = getRndInteger(0, mobsExcCurrent.length);
-    console.log('randMobIndex', randMobIndex)
-    console.log('random mob', mobsExcCurrent[randMobIndex].name)
     currentMobDetails = getMobDetails(mobsExcCurrent[randMobIndex])
-    console.log(currentMobDetails)
 
     // update HTML 
     mobHp = currentMobDetails.meta.maxHP;
@@ -90,7 +80,6 @@ function resetMob() {
 function spawnBoss() {
     if(killed > requiredKills) {
         let randBossIndex = getRndInteger(0, currentMapDetails.mobs.bosses.length)
-        console.log('randomBoss', randBossIndex)
         upcomingMobs = currentMapDetails.mobs.bosses[randBossIndex];
         updateKills('reset');
         bossTimer()

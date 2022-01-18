@@ -79,5 +79,6 @@ function attack() {
     }
 }
 
-// Idle attack
+// Idle attack - setInterval variable
+let attacking; 
 let attackSpeed = 300/playerStats.attackSpeed

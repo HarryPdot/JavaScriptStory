@@ -10,22 +10,35 @@ function getRndInteger(min, max) {
 
 // onLoad
 window.addEventListener('load', (e) => {
-    document.querySelector('ms-loader').remove();
-    document.querySelector('#start-screen').style.backgroundColor = 'rgba(0,0,0,0.75)';
+    document.querySelector('#start-loader').remove();
     document.querySelector('#start-modal').style.display = 'flex';
 })
 
-const loadingState = new Proxy({ loading: true }, {
+const loadingState = new Proxy({ loading: false }, {
+    set(target, prop, val) {
+        target[prop] = val;
+
+        if(val === true) {
+            document.querySelector('#loading-screen').style.display = 'flex';
+            clearInterval(attacking);
+        } else {
+            document.querySelector('#loading-screen').style.display = 'none';
+            attacking = setInterval(attack, attackSpeed);
+        }
+    }
+})
+
+const interactedState = new Proxy({ interacted: true }, {
     set(target, prop, val) {
         target[prop] = val;
         // On change
-        setInterval(attack, attackSpeed)
+        // setInterval(attack, attackSpeed)
     }
 })
 
 function startGame() {
     playSound("assets/sounds/click.wav")
-    loadingState.loading = false
+    interactedState.interacted = false
     document.getElementById("start-screen").remove()
     gotoMap('lith-harbor');
 };

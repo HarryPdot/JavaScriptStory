@@ -12,7 +12,7 @@ template.innerHTML = `
         <img draggable="false"/>
     </div>
 `
-class Mob extends HTMLElement {
+class MobComponent extends HTMLElement {
     constructor() {
         super();
         const shadow = this.attachShadow({mode: 'open'});
@@ -21,4 +21,4 @@ class Mob extends HTMLElement {
     }
 }
 
-window.customElements.define("ms-mob", Mob)
+window.customElements.define("ms-mob", MobComponent)
