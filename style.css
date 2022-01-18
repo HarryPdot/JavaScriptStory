@@ -249,6 +249,15 @@ body {
     background-color: rgb(190, 0, 0);
 }
 
+#skill-grid {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    gap: 10px;
+}
+
 /*
  * [ASSET LAYER]
  */
@@ -373,3 +382,4 @@ body {
         display: none;
     }
 }
+
