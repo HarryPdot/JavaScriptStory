@@ -1,5 +1,4 @@
 const mobHpProgressBarElement = document.querySelector("#current-mob-hp-progress")
-const bossHpProgressBarElement = document.querySelector("#current-boss-hp-progress")
 const uiClickableElement = document.getElementById("ui-clickable");
 
 function isCritical(rndInteger) {
@@ -13,7 +12,6 @@ function getDamage(isCrit) {
 
 function mobHpProgressBar() {
     mobHpProgressBarElement.style.width = (Number(mobHp/currentMobDetails.meta.maxHP) * 100) + "%"
-    bossHpProgressBarElement.style.width = (Number(mobHp/currentMobDetails.meta.maxHP) * 100) + "%"
 }
 
 function getDamageLine(damageDealt, isCrit) {
@@ -68,7 +66,6 @@ function attack() {
     render(getDamageLine(damageDealt, isCrit), document.querySelector("#damageLine"));
 
     mobHp -= damageDealt;
-    mobHpElement.textContent = mobHp
 
     mobHpProgressBar()
 
