@@ -6,9 +6,9 @@ const playerSkills = {
             'isBuff': true,
             'skillEffect': function() {
                 playerStats.critChance += 20
-                setInterval(() => {
+                setTimeout(() => {
                     playerStats.critChance -= 20
-                }, 3000)
+                }, 30000)
             }
         },
         {
@@ -23,7 +23,7 @@ const playerSkills = {
                     clearInterval(attacking)
                     playerStats.attackSpeed = playerStats.attackSpeed / 2
                     attacking = setInterval(attack, 300/playerStats.attackSpeed)
-                }, 3000)
+                }, 30000)
             }
         },
         {
@@ -32,9 +32,10 @@ const playerSkills = {
             'isBuff': true,
             'skillEffect': function() {
                 playerStats.expRate += 0.5
-                setInterval(() => {
-                    playerStats.expRate -= 0.5
-                }, 3000)
+                setTimeout(() => {
+                    playerStats.expRate = playerStats.expRate - 0.5
+                }, 30000)
+
             }
         }
     ],

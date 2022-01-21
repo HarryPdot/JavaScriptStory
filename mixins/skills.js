@@ -36,7 +36,7 @@ function handleSkill(skill) {
 
 function buffDuration(buff) {
     buff.style.pointerEvents='none'
-    setInterval(() => {
+    setTimeout(() => {
         buff.style.pointerEvents='auto'
     }, 30000)
 }
