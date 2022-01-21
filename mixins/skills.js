@@ -5,7 +5,7 @@ const skillThreeShadowElement = document.querySelector('#skill-3').shadowRoot.qu
 // const skillOneElement = document.querySelector('#skill-1')
 // const skillTwoElement = document.querySelector('#skill-2')
 // const skillThreeElement = document.querySelector('#skill-3')
-const skillGrid = document.querySelectorAll('#skill-grid > ms-skill')
+const skillGrid = document.querySelectorAll('#skills-container > ms-skill')
 
 // used for skill tab
 let currentJobSkillsName;

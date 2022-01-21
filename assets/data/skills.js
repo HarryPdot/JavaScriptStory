@@ -8,7 +8,7 @@ const playerSkills = {
                 playerStats.critChance += 20
                 setInterval(() => {
                     playerStats.critChance -= 20
-                }, 30000)
+                }, 3000)
             }
         },
         {
@@ -23,7 +23,7 @@ const playerSkills = {
                     clearInterval(attacking)
                     playerStats.attackSpeed = playerStats.attackSpeed / 2
                     attacking = setInterval(attack, 300/playerStats.attackSpeed)
-                }, 30000)
+                }, 3000)
             }
         },
         {
@@ -33,8 +33,8 @@ const playerSkills = {
             'skillEffect': function() {
                 playerStats.expRate += 0.5
                 setInterval(() => {
-                    playerStats -= 0.5
-                }, 30000)
+                    playerStats.expRate -= 0.5
+                }, 3000)
             }
         }
     ],
