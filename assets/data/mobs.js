@@ -526,11 +526,11 @@ const mobsData = {
         "name": "Dark Drake",
       },
       {
-        "id": 100003,
+        "id": 6230100,
         "meta": {
           "level": 69,
-          "maxHP": 20,
-          "exp": 4,
+          "maxHP": 19000,
+          "exp": 342,
         },
         "name": "Wild Kargo",
       },
