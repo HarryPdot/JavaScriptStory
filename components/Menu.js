@@ -67,12 +67,8 @@ template.innerHTML = `
         <div id="menu-container">
             <button id="toggle-menu-button" onClick="toggleMenu()"><</button>
             <ul id="menu-list">
-                <li><button class="menu-item" onClick="gotoMap('lith-harbor')">Lith Harbor</button></li>
-                <li><button class="menu-item" onClick="gotoMap('henesys')">Henesys</button></li>
-                <li><button class="menu-item" onClick="gotoMap('ellinia')">Ellinia</button></li>
-                <li><button class="menu-item" onClick="gotoMap('kerning-city')">Kerning City</button></li>
-                <li><button class="menu-item" onClick="gotoMap('perion')">Perion</button></li>
-                <li><button class="menu-item" onClick="gotoMap('sleepywood')">Sleepywood</button></li>
+                <li><button class="menu-item" onClick="toggleModal('maps')">Maps</button></li>
+                <li><button class="menu-item" onClick="toggleModal('inventory')">Inventory</button></li>
             </ul>
         </div>
     </div>
