@@ -37,15 +37,19 @@ const lvlElement = document.querySelector("#lvl")
 const currentExpElement = document.querySelector("#current-exp")
 
 let playerStats = {
+    job: 'beginner',
     minRange: 5,
     maxRange: 8,
     attackSpeed: 0.25,
     critChance: 5,
     lvl: 1,
     exp: 0,
+    expRate: 1,
     expToLvl: 100,
     expRemaining: 0,
 }
+
+
 
 // Render initial states
 lvlElement.textContent = `Lv. ${playerStats.lvl}`;
@@ -64,7 +68,7 @@ function handleLevel() {
     playerStats.exp = 0;
     
     if(expRemaining >= playerStats.expToLvl) {
-        handleExp(expRemaining)
+        handleRemainingExp(expRemaining)
     } else {
         playerStats.exp = expRemaining
     }
@@ -75,7 +79,17 @@ function handleLevel() {
 }
 
 function handleExp(exp) {
-    playerStats.exp += exp;
+    console.log(Math.floor(exp * playerStats.expRate))
+    playerStats.exp += Math.floor(exp * playerStats.expRate);
+    updateExpElement();
+    if (playerStats.exp >= playerStats.expToLvl) {
+        handleLevel();
+    }
+}
+
+function handleRemainingExp(exp) {
+    console.log(Math.floor(exp))
+    playerStats.exp += Math.floor(exp);
     updateExpElement();
     if (playerStats.exp >= playerStats.expToLvl) {
         handleLevel();
