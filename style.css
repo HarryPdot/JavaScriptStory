@@ -209,13 +209,16 @@ ms-modal {
 }
 
 /* ui-bottom */
-#skill-grid {
+#skills-container {
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    height: 100%;
+}
+
+ms-skill {
+    display: flex;
+    justify-content: center;
 }
 
 /*

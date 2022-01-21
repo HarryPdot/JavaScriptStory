@@ -3,6 +3,8 @@ const skillTemplate = document.createElement('template')
 skillTemplate.innerHTML = `
     <style>
     img {
+        width: 80px;
+        height: 80px;
         cursor: pointer;
     }
     </style>
