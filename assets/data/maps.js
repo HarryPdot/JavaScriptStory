@@ -4,41 +4,47 @@ let mapsData = {
         id: 104000000,
         name: 'lith-harbor',
         displayName: 'Lith Harbor',
-        mobs: mobsData['lith-harbor']
+        mobs: mobsData['lith-harbor'],
+        unlocked: true,
     },
     'henesys': {
         loaded: false,
         id: 100000000,
         name: 'henesys',
         displayName: 'Henesys',
-        mobs: mobsData['henesys']
+        mobs: mobsData['henesys'],
+        unlocked: false,
     },
     'ellinia': {
         loaded: false,
         id: 101000000,
         name: 'ellinia',
         displayName: 'Ellinia',
-        mobs: mobsData['ellinia']
+        mobs: mobsData['ellinia'],
+        unlocked: false,
     },
     'kerning-city': {
         loaded: false,
         id: 103000000,
         name: 'kerning-city',
         displayName: 'Kerning City',
-        mobs: mobsData['kerning-city']
+        mobs: mobsData['kerning-city'],
+        unlocked: false,
     },
     'perion': {
         loaded: false,
         id: 102000000,
         name: 'perion',
         displayName: 'Perion',
-        mobs: mobsData['perion']
+        mobs: mobsData['perion'],
+        unlocked: false,
     },
     'sleepywood': {
         loaded: false,
         id: 105000000,
         name: 'sleepywood',
         displayName: 'Sleepywood',
-        mobs: mobsData['sleepywood']
+        mobs: mobsData['sleepywood'],
+        unlocked: false,
     },
 }
