@@ -66,7 +66,12 @@
         <ms-modal id="inventory-modal">
             <h3 id="inventory-modal-header" class="header" slot="header">Inventory</h3>
             <div id="inventory-container" slot="content">
-                INVENTORY
+                <div id="equip-container">
+                    <ms-equip id='weapon' equipSrc='./assets/images/skills/beginner-1.png'></ms-equip>
+                    <ms-equip id='hat' equipSrc='./assets/images/skills/beginner-1.png'></ms-equip>
+                    <ms-equip id='top' equipSrc='./assets/images/skills/beginner-2.png'></ms-equip>
+                    <ms-equip id='bottom' equipSrc='./assets/images/skills/beginner-3.png'></ms-equip>
+                </div>
             </div>
         </ms-modal>
 
@@ -175,6 +180,7 @@
     <script src="components/Player.js"></script>
     <script src="components/Mob.js"></script>
     <script src="components/Skill.js"></script>
+    <script src="components/Equipment.js"></script>
     <!-- Mixins -->
     <script src="mixins/audio.js"></script>
     <script src="mixins/damage.js"></script>

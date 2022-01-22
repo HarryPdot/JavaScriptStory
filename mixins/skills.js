@@ -26,7 +26,6 @@ function inputSkills() {
 function handleSkill(skill) {
     let skillClicked = playerSkills[playerStats.job][currentJobSkillsIcon.indexOf(skill.getAttribute('skillsrc'))]
     if(skillClicked.isBuff === true) {
-        console.log(skill)
         buffDuration(skill)
         skillBuff(skillClicked)
     } else {
@@ -42,7 +41,6 @@ function buffDuration(buff) {
 }
 
 function skillBuff(buff) {
-    console.log(buff.name)
     buff.skillEffect()
 }
 

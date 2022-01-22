@@ -47,6 +47,10 @@ let playerStats = {
     expRate: 1,
     expToLvl: 100,
     expRemaining: 0,
+    Equipment: {
+        Weapon:'',
+        Hat: ''
+    }
 }
 
 
@@ -79,7 +83,6 @@ function handleLevel() {
 }
 
 function handleExp(exp) {
-    console.log(Math.floor(exp * playerStats.expRate))
     playerStats.exp += Math.floor(exp * playerStats.expRate);
     updateExpElement();
     if (playerStats.exp >= playerStats.expToLvl) {

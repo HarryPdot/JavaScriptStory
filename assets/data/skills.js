@@ -35,7 +35,6 @@ const playerSkills = {
                 setTimeout(() => {
                     playerStats.expRate = playerStats.expRate - 0.5
                 }, 30000)
-
             }
         }
     ],
