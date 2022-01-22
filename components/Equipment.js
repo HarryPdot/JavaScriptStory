@@ -6,7 +6,7 @@ template.innerHTML = `
     <img draggable= "false"/>
 
 `
-class Equipment extends HTMLElement {
+class Equip extends HTMLElement {
     constructor() {
         super();
         const shadow = this.attachShadow({mode: 'open'});
@@ -15,4 +15,4 @@ class Equipment extends HTMLElement {
     }
 }
 
-window.customElements.define('ms-equip', Equipment)
+window.customElements.define('ms-equip', Equip)
