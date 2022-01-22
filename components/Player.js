@@ -48,9 +48,9 @@ let playerStats = {
     expToLvl: 100,
     expRemaining: 0,
     dropRate: 1,
-    Equipment: {
-        Weapon:'',
-        Hat: ''
+    equips: {
+        weapon: '',
+        hat: ''
     },
     inventory: []
 }
