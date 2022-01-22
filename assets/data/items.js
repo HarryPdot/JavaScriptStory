@@ -1,6 +1,19 @@
 const itemsData = {
-    weapons: {
-        "maple-sword": {
+    weapons: [
+        {
+            id: 1302020,
+            name: "feather",
+            displayName: "Feather",
+            equipGroup: "Weapon",
+            reqLevel: 35,
+            attack: [45, 53],
+            attackSpeed: 5,
+            dropChance: 0.50,
+            droppedBy: [
+                "Snail",
+            ],
+        },
+        {
             id: 1302020,
             name: "maple-sword",
             displayName: "Maple Sword",
@@ -17,7 +30,7 @@ const itemsData = {
                 "Mano",
             ],
         },
-        "maple-soul-singer": {
+        {
             id: 1302030,
             name: "maple-soul-singer",
             displayName: "Maple Soul Singer",
@@ -35,7 +48,7 @@ const itemsData = {
                 "Amdusias",
             ],
         },
-        "maple-glory-sword": {
+        {
             id: 1302064,
             name: "maple-glory-sword",
             displayName: "Maple Glory Sword",
@@ -56,7 +69,7 @@ const itemsData = {
                 "Marbas",
             ],
         },
-        "3rd-unwelcome-guest-one-handed-sword": {
+        {
             id: 1302145,
             name: "3rd-unwelcome-guest-one-handed-sword",
             displayName: "3rd Unwelcome Guest One-Handed Sword",
@@ -79,7 +92,7 @@ const itemsData = {
                 "Valefor",
             ],
         },
-        "black-crystal-blade": {
+        {
             id: 1302107,
             name: "black-crystal-blade",
             displayName: "Black Crystal Blade",
@@ -104,7 +117,7 @@ const itemsData = {
                 "Andras",
             ],
         },
-        "timeless-executioners": {
+        {
             id: 1302081,
             name: "timeless-executioners",
             displayName: "Timeless Executioners",
@@ -125,5 +138,5 @@ const itemsData = {
                 "Jr. Balrog",
             ],
         },
-    }
+    ]
 }

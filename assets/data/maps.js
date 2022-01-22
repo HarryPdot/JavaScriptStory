@@ -6,6 +6,7 @@ let mapsData = {
         displayName: 'Lith Harbor',
         mobs: mobsData['lith-harbor'],
         unlocked: true,
+        unlockedBoss: false,
     },
     'henesys': {
         loaded: false,
@@ -14,6 +15,7 @@ let mapsData = {
         displayName: 'Henesys',
         mobs: mobsData['henesys'],
         unlocked: false,
+        unlockedBoss: false,
     },
     'ellinia': {
         loaded: false,
@@ -22,6 +24,7 @@ let mapsData = {
         displayName: 'Ellinia',
         mobs: mobsData['ellinia'],
         unlocked: false,
+        unlockedBoss: false,
     },
     'kerning-city': {
         loaded: false,
@@ -30,6 +33,7 @@ let mapsData = {
         displayName: 'Kerning City',
         mobs: mobsData['kerning-city'],
         unlocked: false,
+        unlockedBoss: false,
     },
     'perion': {
         loaded: false,
@@ -38,6 +42,7 @@ let mapsData = {
         displayName: 'Perion',
         mobs: mobsData['perion'],
         unlocked: false,
+        unlockedBoss: false,
     },
     'sleepywood': {
         loaded: false,
@@ -46,5 +51,6 @@ let mapsData = {
         displayName: 'Sleepywood',
         mobs: mobsData['sleepywood'],
         unlocked: false,
+        unlockedBoss: false,
     },
 }

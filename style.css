@@ -126,6 +126,10 @@ ms-modal {
     height: 100%;
 }
 
+#ui-boss {
+    grid-area: boss;
+}
+
 #ui-settings {
     grid-area: settings;
     display: flex;
@@ -150,7 +154,7 @@ ms-modal {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     grid-template-areas: 
-        "lvl . settings"
+        "lvl boss settings"
         "clickable clickable clickable"
         "clickable clickable clickable"
         "clickable clickable clickable"
@@ -196,6 +200,11 @@ ms-modal {
     transition: transform 330ms ease-in-out;
 }
 
+/* ui-boss */
+#boss-button {
+    display: none;
+}
+
 /* ui-settings */
 #toggle-mute {
     width: 120px;
@@ -231,6 +240,8 @@ ms-skill {
 
 #asset-gains {
     grid-area: gains;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #asset-mob-details {
@@ -309,6 +320,21 @@ ms-skill {
 
 /* asset-gains */
 #gains-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: fit-content;
+    min-width: 120px;
+    max-width: 200px;
+    height: 100%;
+    padding: 8px;
+    margin: 4px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.33);
+    color: white;
+    font-size: 12px;
+    text-align: right;
+    overflow: hidden;
 }
 
 /* asset-mob-details */
@@ -377,7 +403,8 @@ ms-skill {
 }
 
 #mob {
-    z-index: 9;
+    z-index: 1;
+    margin-bottom: -4px;
 }
 
 #platform {
