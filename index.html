@@ -31,32 +31,32 @@
             <h3 id="maps-modal-header" class="header" slot="header">Maps</h3>
             <ul id="maps-list" slot="content">
                 <li>
-                    <button onClick="gotoMap('lith-harbor')">
+                    <button id="lith-harbor-button" onClick="gotoMap('lith-harbor')">
                         <img src="https://maplestory.io/api/GMS/210.1.1/map/104000000/icon" alt="Lith Harbor Icon" />
                     </button>
                 </li>
                 <li>
-                    <button onClick="gotoMap('henesys')">
+                    <button id="henesys-button" onClick="gotoMap('henesys')" disabled>
                         <img src="https://maplestory.io/api/GMS/210.1.1/map/100000000/icon" alt="Henesys Icon" />
                     </button>
                 </li>
                 <li>
-                    <button onClick="gotoMap('ellinia')">
+                    <button id="ellinia-button" onClick="gotoMap('ellinia')" disabled>
                         <img src="https://maplestory.io/api/GMS/210.1.1/map/101000000/icon" alt="Ellinia Icon" />
                     </button>
                 </li>
                 <li>
-                    <button onClick="gotoMap('kerning-city')">
+                    <button id="kerning-city-button" onClick="gotoMap('kerning-city')" disabled>
                         <img src="https://maplestory.io/api/GMS/210.1.1/map/103000000/icon" alt="Kerning City Icon" />
                     </button>
                 </li>
                 <li>
-                    <button onClick="gotoMap('perion')">
+                    <button id="perion-button" onClick="gotoMap('perion')" disabled>
                         <img src="https://maplestory.io/api/GMS/210.1.1/map/102000000/icon" alt="Perion Icon" />
                     </button>
                 </li>
                 <li>
-                    <button onClick="gotoMap('sleepywood')">
+                    <button id="sleepywood-button" onClick="gotoMap('sleepywood')" disabled>
                         <img src="https://maplestory.io/api/GMS/210.1.1/map/105000000/icon" alt="Sleepywood Icon" />
                     </button>
                 </li>
@@ -87,19 +87,23 @@
                     </div>
                 </div>
 
+                <div id="ui-boss">
+                    <button id="boss-button" onClick="spawnBoss(currentMapDetails)">Boss</button>
+                </div>
+
                 <div id="ui-settings">
-                    <button id="toggle-mute" onClick="muteAll()">Sound ON</button>
+                    <!-- <button id="toggle-mute" onClick="muteAll()">Sound ON</button> -->
                 </div>
 
                 <!-- Built to self position -->
                 <ms-menu></ms-menu>
 
                 <div id="ui-clickable" onClick="attack()">
+                    <!-- <button onClick="hax()">spam4hax</button> -->
+                    <button onClick="checkInv()">checkInv</button>
                 </div>
 
-                <div id="ui-bottom">
-                    <!-- <button onClick="hax()">spam4hax</button> -->
-                    
+                <div id="ui-bottom">        
                     <div id='skills-container'>
                         <ms-skill id='skill-1' skillSrc='./assets/images/skills/beginner-1.png'></ms-skill>
                         <ms-skill id='skill-2' skillSrc='./assets/images/skills/beginner-2.png'></ms-skill>
@@ -124,7 +128,7 @@
             <!-- @todo: Add gains box -->
             <div id="asset-gains">
                 <div id="gains-container">
-                    <!-- You gained 15 exp -->
+                    <div id="gains-text"></div>
                 </div>
             </div>
 
@@ -163,6 +167,9 @@
         function hax() {
             setInterval(attack, attackSpeed)
         }
+        function checkInv() {
+            console.log('Inventory', playerStats.inventory)
+        }
     </script>
     <!-- Config -->
     <script src="config.js"></script>
@@ -185,7 +192,6 @@
     <script src="mixins/audio.js"></script>
     <script src="mixins/damage.js"></script>
     <script src="mixins/maps.js"></script>
-    <script src="mixins/mobs.js"></script>
     <script src="mixins/skills.js"></script>
     <script src="mixins/equipment.js"></script>
     <!-- API -->

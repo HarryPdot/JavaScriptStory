@@ -64,6 +64,12 @@ template.innerHTML = `
             cursor: url(assets/images/cursor/ms_default.cur), auto;
         }
 
+        #maps-list li button:disabled {
+            background-color: black;
+            border: none;
+            margin: 0;
+        }
+
         /* inventory-modal */
         #inventory-container {
             color: white;

@@ -10,7 +10,7 @@ function getDamage(isCrit) {
     return isCrit ? Math.floor(baseDamage * 1.5) : Math.floor(baseDamage);
 }
 
-function mobHpProgressBar() {
+function updateMobHpBar() {
     mobHpProgressBarElement.style.width = (Number(mobHp/currentMobDetails.meta.maxHP) * 100) + "%"
 }
 
@@ -66,13 +66,12 @@ function attack() {
     render(getDamageLine(damageDealt, isCrit), document.querySelector("#damageLine"));
 
     mobHp -= damageDealt;
-
-    mobHpProgressBar()
-
-    if (mobHp <= 0) {
-        resetMob()
-        handleExp(currentMobDetails.meta.exp)
-        mobHpProgressBar()
+    updateMobHpBar();
+    
+    if(mobHp <= 0) {
+        if(!currentMapDetails.unlockedBoss) updateKills('add');
+        clearMob(currentMobDetails);
+        spawnMob(currentMobDetails);
     }
 }
 

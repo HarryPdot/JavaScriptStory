@@ -1,5 +1,19 @@
 const itemsData = {
         weapons: [
+            // @todo: Remove - For testing purposes
+            {
+                id: 1302020,
+                name: "feather",
+                displayName: "Feather",
+                equipGroup: "Weapon",
+                reqLevel: 35,
+                attack: [45, 53],
+                attackSpeed: 5,
+                dropChance: 0.50,
+                droppedBy: [
+                    "Snail",
+                ],
+            },
             {
                 id: 1302020,
                 name: "maple-sword",
