@@ -35,8 +35,9 @@ window.customElements.define('ms-player', Player)
 
 const lvlElement = document.querySelector("#lvl")
 const currentExpElement = document.querySelector("#current-exp")
-// EXP Modifier for balancing
+// Custom modifiers for balancing
 const customExpRate = 10;
+const customAtkRate = 1.05;
 
 let playerStats = {
     job: 'beginner',
@@ -69,6 +70,9 @@ function handleLevel() {
     playSound("assets/sounds/lvlup.wav")
 
     let expRemaining = playerStats.exp - playerStats.expToLvl;
+
+    playerStats.minRange *= customAtkRate;
+    playerStats.maxRange *= customAtkRate;
 
     playerStats.lvl++;
     playerStats.exp = 0;

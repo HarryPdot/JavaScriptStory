@@ -12,7 +12,7 @@ let mobHp;
 let gainsLog = [];
 
 let killed = 0;
-let requiredKills = 5;
+let requiredKills = 10;
 
 let bossTimer;
 let isBoss = false;
