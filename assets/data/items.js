@@ -109,7 +109,7 @@ const itemsData =
         equipGroup: "weapons",
         // name can be changed
         playerEquipType: "weapon",
-        reqLevel: 1,
+        reqLevel: 35,
         attack: [45, 53],
         attackSpeed: 1,
         dropChance: 0.30,
