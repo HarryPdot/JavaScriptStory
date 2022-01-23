@@ -83,7 +83,7 @@ function handleUnequip() {
 }
 
 function giveItemDetails(item) {
-    itemDescriptionName.textContent = `Name: ${item.displayName}`
+    itemDescriptionName.textContent = `Level: ${item.reqLevel}`
     itemDescriptionAttack.textContent = `Attack: ${item.attack[0]} - ${item.attack[0]}`
     itemDescriptionAttackspeed.textContent = `Attack Speed: ${item.attackSpeed}`
 }
