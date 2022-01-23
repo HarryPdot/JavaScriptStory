@@ -2,6 +2,8 @@ const mobLvlElement = document.querySelector('#mob-lvl');
 const mobNameElement = document.querySelector('#mob-name');
 const killedElement = document.querySelector('#killed');
 const bossButtonElement = document.querySelector('#boss-button');
+const bossTimerElement = document.querySelector('#boss-timer')
+const timeLeftElement = document.querySelector('#time-left')
 
 let currentMapDetails;
 let currentMobDetails;
@@ -12,6 +14,9 @@ let gainsLog = [];
 let killed = 0;
 let requiredKills = 5;
 killedElement.textContent = `${killed}/${requiredKills}`
+
+let bossTimer;
+let isBoss = false;
 
 let mobAnimationsURLs = {};
 /*  type mobAnimationsURLs = {
@@ -123,7 +128,7 @@ function clearMob(mob) {
 }
 
 function getLoot(mob) {
-    const possibleItems = itemsData.weapons.filter((weapon) => weapon.droppedBy.includes(mob.name))
+    const possibleItems = itemsData.filter((weapon) => weapon.droppedBy.includes(mob.name))
     possibleItems.forEach((item) => {
         if(chance(item.dropChance)) {
             playerStats.inventory.push(item)
@@ -158,12 +163,46 @@ function updateKills(action) {
             killedElement.textContent = `${killed}/${requiredKills}`
         }
     }
-
-    // console.log('mapsData', mapsData)
-    // console.log('killed', killed)
 }
 
 function spawnBoss(map) {
+    isBoss = true;
     currentMobDetails = map.mobs.bosses[0];
     renderMob();
+    setBossTimer(30);
+}
+
+function despawnBoss() {
+    isBoss = false;
+    clearInterval(bossTimer);
+    bossTimerElement.style.display = "none"
+}
+
+function setBossTimer(time) {
+    let timeLeft = time;
+    timeLeftElement.innerText = Math.trunc(timeLeft)
+
+    bossButtonElement.style.display = "none"
+    bossTimerElement.style.display = "flex"
+
+    bossTimer = setInterval(() => {
+        timeLeft -= 1;
+        timeLeftElement.innerText = Math.trunc(timeLeft)
+
+        // Failed boss
+        if(timeLeft <= 0) {
+            despawnBoss();
+            bossButtonElement.style.display = "flex"
+            spawnMob(currentMobDetails);
+        }
+    }, 1000);
+}
+
+function clearBoss(currentBoss) {
+    clearMob(currentBoss);
+    despawnBoss();
+    // if not going to next stage
+    spawnMob(currentBoss);
+    bossButtonElement.style.display = "flex"
+    // Unlock next stage
 }

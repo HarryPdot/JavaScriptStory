@@ -151,7 +151,7 @@ ms-modal {
 /* See: https://css-tricks.com/preventing-a-grid-blowout/ */
 .ui-grid-3x6 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     grid-template-areas: 
         "lvl boss settings"
@@ -205,80 +205,6 @@ ms-modal {
     display: none;
 }
 
-/* ui-settings */
-#toggle-mute {
-    width: 120px;
-    height: 32px;
-    padding: 8px 12px;
-    margin: 8px;
-    border: none;
-    border-radius: 16px;
-    background-color: rgb(0, 0, 0, 0.5);
-    color: rgb(0, 255, 42);
-}
-
-/* ui-bottom */
-#skills-container {
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    height: 100%;
-}
-
-ms-skill {
-    display: flex;
-    justify-content: center;
-}
-
-/*
- * [ASSET LAYER]
- */
-
-#asset-map-details {
-    grid-area: map-details;
-}
-
-#asset-gains {
-    grid-area: gains;
-    display: flex;
-    justify-content: flex-end;
-}
-
-#asset-mob-details {
-    grid-area: mob-details;
-    width: 75%;
-    max-width: 800px;
-    margin: auto;
-}
-
-#asset-player {
-    grid-area: player;
-}
-
-#asset-mob {
-    grid-area: mob;
-}
-
-#asset-platform {
-    grid-area: platform;
-}
-
-.asset-grid-3x6 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-areas: 
-        ". map-details gains"
-        "mob-details mob-details mob-details"
-        "player mob mob"
-        "player mob mob"
-        "platform platform platform"
-        ". . .";
-    width: 100%;
-    height: 100%;
-}
-
-/* #asset-map-details */
 #map-details-container {
     display: flex;
     justify-content: center;
@@ -316,6 +242,75 @@ ms-skill {
     border-radius: 4px;
     color: rgb(255, 204, 0);
     font-size: 28px;
+}
+
+/* ui-settings */
+#toggle-mute {
+    width: 120px;
+    height: 32px;
+    padding: 8px 12px;
+    margin: 8px;
+    border: none;
+    border-radius: 16px;
+    background-color: rgb(0, 0, 0, 0.5);
+    color: rgb(0, 255, 42);
+}
+
+/* ui-bottom */
+#skills-container {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    height: 100%;
+}
+
+ms-skill {
+    display: flex;
+    justify-content: center;
+}
+
+/*
+ * [ASSET LAYER]
+ */
+
+#asset-gains {
+    grid-area: gains;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#asset-mob-details {
+    grid-area: mob-details;
+    width: 75%;
+    max-width: 800px;
+    margin: auto;
+}
+
+#asset-player {
+    grid-area: player;
+}
+
+#asset-mob {
+    grid-area: mob;
+}
+
+#asset-platform {
+    grid-area: platform;
+}
+
+.asset-grid-3x6 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: 
+        ". . gains"
+        "mob-details mob-details mob-details"
+        "player mob mob"
+        "player mob mob"
+        "platform platform platform"
+        ". . .";
+    width: 100%;
+    height: 100%;
 }
 
 /* asset-gains */

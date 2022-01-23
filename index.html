@@ -87,8 +87,17 @@
                     </div>
                 </div>
 
-                <div id="ui-boss">
-                    <button id="boss-button" onClick="spawnBoss(currentMapDetails)">Boss</button>
+                <div id="ui-boss">                
+                    <div id="map-details-container">
+                        <div id="kill-counter"><span id="killed"></span></div>
+
+                        <button id="boss-button" onClick="spawnBoss(currentMapDetails)">Boss</button>
+
+                        <div id="boss-timer">
+                            <span>Time Left:</span>
+                            <div id="time-left"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="ui-settings">
@@ -115,16 +124,6 @@
 
         <!-- [ASSET LAYER] -->
         <div id="asset-layer" class="asset-grid-3x6">
-            <div id="asset-map-details">
-                <div id="map-details-container">
-                    <div id="kill-counter"><span id="killed"></span></div>
-                    <div id="boss-timer">
-                        <span>Time Left:</span>
-                        <div id="time-left"></div>
-                    </div>
-                </div>
-            </div>
-
             <!-- @todo: Add gains box -->
             <div id="asset-gains">
                 <div id="gains-container">
