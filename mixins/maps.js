@@ -13,7 +13,6 @@ let gainsLog = [];
 
 let killed = 0;
 let requiredKills = 5;
-killedElement.textContent = `${killed}/${requiredKills}`
 
 let bossTimer;
 let isBoss = false;
@@ -87,6 +86,15 @@ async function loadMap(map) {
     setAudio('play', document.querySelector('#bgm'), Map.getBGM(mapsData[map].id))
     document.querySelector('.container').style.backgroundImage = `url("./assets/images/map/${map}-bg.png")`
     document.getElementById('platform').src = `./assets/images/map/${map}-platform.png`
+
+    if(isNextMapLocked(map) && !mapsData[map].unlockedBoss) {
+        killedElement.style.display = 'flex';
+        killedElement.textContent = `${killed}/${requiredKills}`
+        bossButtonElement.style.display = 'none';
+    } else {
+        killedElement.style.display = 'none';
+        bossButtonElement.style.display = 'flex';
+    }
 
     if(!mapsData[map].loaded) {
         await getMobAnimationsData(map);
@@ -201,8 +209,30 @@ function setBossTimer(time) {
 function clearBoss(currentBoss) {
     clearMob(currentBoss);
     despawnBoss();
-    // if not going to next stage
-    spawnMob(currentBoss);
-    bossButtonElement.style.display = "flex"
-    // Unlock next stage
+
+    if(isNextMapLocked(currentMapDetails.name)) {
+        mapsData[getNextMap(currentMapDetails.name)].unlocked = true;
+        document.querySelector('ms-modal').shadowRoot.querySelector(`#${getNextMap(currentMapDetails.name)}-button`).removeAttribute('disabled');
+        gotoMap(getNextMap(currentMapDetails.name));
+    } else {
+        bossButtonElement.style.display = "flex";
+        spawnMob(currentBoss);
+    }
+}
+
+function getNextMap(currentMap) {
+    switch(currentMap) {
+        case 'lith-harbor': 
+            return 'henesys'
+        case 'henesys':
+            return 'ellinia'
+        case 'ellinia':
+            return 'kerning-city'
+        case 'perion':
+            return 'sleepywood'
+    }
+}
+
+function isNextMapLocked(currentMap) {
+    return !mapsData[getNextMap(currentMap)].unlocked
 }
