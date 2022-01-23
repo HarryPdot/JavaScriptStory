@@ -70,8 +70,13 @@ function attack() {
     
     if(mobHp <= 0) {
         if(!currentMapDetails.unlockedBoss) updateKills('add');
-        clearMob(currentMobDetails);
-        spawnMob(currentMobDetails);
+
+        if(!isBoss) {
+            clearMob(currentMobDetails);
+            spawnMob(currentMobDetails);
+        } else {
+            clearBoss(currentMobDetails)
+        }
     }
 }
 
