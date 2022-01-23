@@ -229,7 +229,11 @@ function getNextMap(currentMap) {
             return 'ellinia'
         case 'ellinia':
             return 'kerning-city'
+        case 'kerning-city':
+            return 'perion'
         case 'perion':
+            return 'sleepywood'
+        case 'sleepywood':
             return 'sleepywood'
     }
 }
