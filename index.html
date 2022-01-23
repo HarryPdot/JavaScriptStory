@@ -67,11 +67,22 @@
             <h3 id="inventory-modal-header" class="header" slot="header">Inventory</h3>
             <div id="inventory-container" slot="content">
                 <div id="equip-container">
-                    <ms-equip id='weapon' equipSrc='./assets/images/skills/beginner-1.png'></ms-equip>
-                    <ms-equip id='hat' equipSrc='./assets/images/skills/beginner-1.png'></ms-equip>
-                    <ms-equip id='top' equipSrc='./assets/images/skills/beginner-2.png'></ms-equip>
-                    <ms-equip id='bottom' equipSrc='./assets/images/skills/beginner-3.png'></ms-equip>
+                    <img id="weapon" src="./assets/images/skills/beginner-1.png" alt="Weapon slot">
+                    <img id="equip-player-stand" src="./assets/images/player/beginner_stand_0.png" alt="Player stand">
+                    <img id="helmet" src="./assets/images/skills/beginner-2.png" alt="Helmet slot">
                 </div>
+                <div id="equip-details">
+                </div>
+                <div id='inventory-details'>
+                    <img id="item-detail-icon" src="./assets/images/skills/beginner-3.png" alt="Item slot">
+                    <div id="item-description-container">
+                        <div id="item-description-name"></div>
+                        <div id="item-description-attack"></div>
+                        <div id="item-description-attackspeed"></div>
+                    </div>
+                    <button id="item-detail-button"></button>
+                </div>
+                <div id='items-container'></div>
             </div>
         </ms-modal>
 
@@ -192,9 +203,11 @@
     <script src="mixins/damage.js"></script>
     <script src="mixins/maps.js"></script>
     <script src="mixins/skills.js"></script>
+    <script src="mixins/inventory.js"></script>
     <script src="mixins/equipment.js"></script>
     <!-- API -->
     <script src="services/Map.js"></script>
     <script src="services/Mob.js"></script>
+    <script src="services/Equipment.js"></script>
 </body>
 </html>

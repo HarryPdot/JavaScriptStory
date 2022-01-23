@@ -52,7 +52,7 @@ let playerStats = {
     dropRate: 1,
     equips: {
         weapon: '',
-        hat: ''
+        helmet: ''
     },
     inventory: []
 }

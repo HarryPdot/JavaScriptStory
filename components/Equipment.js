@@ -6,7 +6,7 @@ template.innerHTML = `
     <img draggable= "false"/>
 
 `
-class Equip extends HTMLElement {
+class EquipComponent extends HTMLElement {
     constructor() {
         super();
         const shadow = this.attachShadow({mode: 'open'});
@@ -15,4 +15,8 @@ class Equip extends HTMLElement {
     }
 }
 
-window.customElements.define('ms-equip', Equip)
+window.customElements.define('ms-equip', EquipComponent)
+
+let testing = document.querySelector("#inventory-modal").shadowRoot.querySelector(".equip1")
+
+// testing.parentNode.removeChild(testing)

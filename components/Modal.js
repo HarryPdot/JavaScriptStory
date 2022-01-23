@@ -21,7 +21,7 @@ template.innerHTML = `
             padding: 24px;
         }
 
-        button {
+        .modal-btn {
             padding: 4px 28px;
             border: none;
             border-radius: 2px;
@@ -30,7 +30,7 @@ template.innerHTML = `
             cursor: url(assets/images/cursor/ms_default.cur), auto;
         }
 
-        button:hover {
+        .modal-btn:hover {
             background-color: rgba(1, 122, 255, 1);
         }
 
@@ -75,12 +75,87 @@ template.innerHTML = `
         #inventory-container {
             color: white;
         }
+
+        /* #equip-container 3x3*/
+        #equip-container {
+            display: grid;
+            width: 250px;
+            height: 150px;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+            grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) ;
+            grid-template-areas:
+            ". . player player . ."
+            ". weapon player player helmet ."
+            ". . stat stat . ."
+        }
+
+        #weapon {
+            grid-area: weapon;
+            position: relative;
+            left: 13%;
+            top: 20%;
+        }
+        
+        #equip-player-stand {
+            grid-area: player;
+            position: relative;
+            top: 25%;
+            left: 25%;
+            draggable= "false"
+        }
+
+        #helmet {
+            grid-area: helmet;
+            position: relative;
+            left: 13%;
+            top: 20%;
+            
+        }
+
+        #inventory-details {
+            width: 250px;
+            height: 50px;
+            display: grid;
+            grid-template-columns:  minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) ;
+            grid-template-areas:
+            "item description description buttons"
+        }
+
+        #item-detail-icon {
+            grid-area: item;
+            position: relative;
+            left: 25%;
+            top: 20%;
+        }
+
+        #item-description-container {
+            grid-area: description;
+            font-size: 12px;
+            color: black;
+        }
+
+        #item-detail-button {
+            grid-area: buttons;
+        }
+
+        #items-container {
+            width: 250px;
+            height: 150px;
+            overflow-y: scroll;
+            scrollbar-width: none; /*firefox*/
+            -ms-overflow-style: none; /*ie*/
+        }
+
+        #items-container::-webkit-scrollbar {
+            display: none;
+        }
+
     </style>
 
     <div class="modal">
         <div id="header-slot"></div>
         <div id="content-slot" class="content"></div>
-        <button onClick="toggleModal()">Close</button>
+        <button class="modal-btn" onClick="toggleModal()">Close</button>
     </div>
 `
 
