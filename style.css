@@ -139,7 +139,17 @@ ms-modal {
 #ui-clickable {
     grid-area: clickable;
 }
-
+#equip-container {
+    display: grid;
+    width: 300px;
+    height: 150px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+    ". player ."
+    "weapon player helmet"
+    ". player ."
+}
 #ui-bottom {
     grid-area: bottom;
     width: 100%;

@@ -141,6 +141,7 @@ function getLoot(mob) {
         if(chance(item.dropChance)) {
             playerStats.inventory.push(item)
             updateGainsLog(`Item (${item.displayName})`)
+            updateInventorySpace(item)
         }
     })
 }

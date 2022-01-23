@@ -78,7 +78,7 @@ const itemsData =
         equipGroup: "helmets",
         playerEquipType: "helmet",
         reqLevel: 0,
-        attack: [0, 0],
+        attack: [1, 1],
         attackSpeed: 6,
         dropChance: 0.05,
         droppedBy: [
@@ -91,7 +91,9 @@ const itemsData =
         id: 1302020,
         name: "feather",
         displayName: "Feather",
-        equipGroup: "Weapon",
+        equipGroup: "weapons",
+        // name can be changed
+        playerEquipType: "weapon",
         reqLevel: 35,
         attack: [45, 53],
         attackSpeed: 5,
@@ -107,7 +109,7 @@ const itemsData =
         equipGroup: "weapons",
         // name can be changed
         playerEquipType: "weapon",
-        reqLevel: 35,
+        reqLevel: 1,
         attack: [45, 53],
         attackSpeed: 1,
         dropChance: 0.30,
