@@ -89,7 +89,8 @@ template.innerHTML = `
             ". . stat stat . ."
         }
 
-        #weapon {
+        #weapon,
+        #ui-weapon {
             grid-area: weapon;
             position: relative;
             left: 13%;
@@ -104,12 +105,29 @@ template.innerHTML = `
             draggable= "false"
         }
 
-        #helmet {
+        #helmet,
+        #ui-helmet {
             grid-area: helmet;
             position: relative;
             left: 13%;
             top: 20%;
-            
+        }
+
+        #helmet,
+        #weapon,
+        #item-detail-icon {
+            z-index: 99;
+            display: none;
+        }
+
+        #ui-helmet,
+        #ui-weapon,
+        #ui-detail-icon {
+            width: 28px;
+            height: 28px;
+            border: 2px solid grey;
+            background-color: silver;
+            z-index: 0;
         }
 
         #inventory-details {
@@ -121,7 +139,8 @@ template.innerHTML = `
             "item description description buttons"
         }
 
-        #item-detail-icon {
+        #item-detail-icon,
+        #ui-detail-icon {
             grid-area: item;
             position: relative;
             left: 25%;
@@ -134,8 +153,30 @@ template.innerHTML = `
             color: black;
         }
 
-        #item-detail-button {
+        #item-detail-equip {
+            position: relative;
+            top: 33%;
+            left: 7%;
             grid-area: buttons;
+            width: 55px;
+            height: 20px;
+            font-size: 12px;
+
+            display: none;
+            justify-content: center;
+        }
+
+        #item-detail-unequip {
+            position: relative;
+            top: 33%;
+            left: 7%;
+            grid-area: buttons;
+            width: 55px;
+            height: 20px;
+            font-size: 12px;
+
+            display: none;
+            justify-content: center;
         }
 
         #items-container {
