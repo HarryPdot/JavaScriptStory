@@ -67,6 +67,7 @@ template.innerHTML = `
         #maps-list li button:disabled {
             background-color: black;
             border: none;
+            border-radius: 0;
             margin: 0;
         }
 
